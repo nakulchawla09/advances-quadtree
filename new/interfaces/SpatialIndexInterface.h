@@ -8,10 +8,10 @@
 #include "Rectangle.h"
 class SpatialIndexInterface {
 public:
-    virtual Point* search(Point diagonal1,Point diagonal2) = 0;
-    virtual Rectangle* searchRectangle(Point diagonal1,Point diagonal2) = 0;
-    virtual SpatialIndexInterface createIndex(Point &points[]) = 0;
-    virtual SpatialIndexInterface createIndex(Rectangle &rectangles[]) = 0;
+    virtual Point* search(Point diagonal1,Point diagonal2,Point &points[]) = 0;
+    virtual Rectangle* search(Point diagonal1,Point diagonal2, Rectangle &rectangles[]) = 0;
+    virtual SpatialIndexInterface* createIndex(Point &points[]) = 0;
+    virtual SpatialIndexInterface* createIndex(Rectangle &rectangles[]) = 0;
     virtual int update(Point &points[]) = 0;
     virtual int update(Rectangle &rectangles[]) = 0;
     virtual bool deleteIndex() = 0;

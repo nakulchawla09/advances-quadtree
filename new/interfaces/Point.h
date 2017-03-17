@@ -8,6 +8,7 @@ class Point {
     float x,y;
     int id;
 public:
+    Point();
     Point(float a, float b) {x = a; y = b;}
     float* getCoordinates() { float coord[] = {x,y}; return coord;}
     int getId() {return id;}
