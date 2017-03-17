@@ -29,6 +29,7 @@ struct Node* makeNode(double x, double y)	{
 class PointQuadtree	{
 public:
 
+    //check to see if two Node structs are equal
 	bool equalCoordinates(struct Node* temp, struct Node* toBeInserted)	{
 		if(temp->x == toBeInserted->x && temp->y == toBeInserted->y)	{
 			return true;
@@ -75,7 +76,8 @@ public:
 		    temp->NE = toBeInserted;
 		}
 	}
-
+	
+	//insert: @return true for successful search, false for unsuccessful search
 	bool insert(struct Node* toBeInserted)	{
 			if(root == NULL)	{
 				root = toBeInserted;
@@ -94,15 +96,17 @@ public:
 				    temp = quadrant;
 				}
 			}
-
+			
 			return false;
 	}
 
+    //insert: @return true for successful search, false for unsuccessful search
 	bool insert(double x, double y)	{
 		struct Node* temp = makeNode(x,y);
 		return insert(temp);
 	}
 
+    //sample input for testing
     void sampleInput()   {
         insert(4,4);
     	insert(3,3);
@@ -112,9 +116,38 @@ public:
     	insert(5,6);
     	insert(7,8);
     }
+    
+    //searching: @return true for successful search, false for unsuccessful search
+    bool search(struct Node* toBeSearched) {
+        if(root == NULL)	{
+			return false;
+		}
+		
+		if(equalCoordinates(root, toBeSearched))    {
+		    return true;
+		}
 
-	queue<struct Node*> q;
+        struct Node *temp = root;
+        while(temp != NULL) {
+            if(equalCoordinates(temp, toBeSearched))    {
+                return true;
+            }
+            else    {
+                temp = getQuadrant(temp, toBeSearched);
+            }
+        }
+        return false;
+    }
+    
+    //searching: @return true for successful search, false for unsuccessful search
+    bool search(double x, double y) {
+        struct Node* temp = makeNode(x,y);
+		return search(temp);
+    }
+    
+    //function for level order traversal using BFS
 	void levelOrderTraversal(struct Node* temp) {
+	    queue<struct Node*> q;
 	    if(q.empty())
 	        q.push(temp);
 
@@ -136,11 +169,17 @@ public:
 };
 
 int main()	{
-
+    
 	PointQuadtree pointQuadtree;
-
+	
 	pointQuadtree.sampleInput();
-
+	
+	cout << pointQuadtree.search(4,4) << endl;
+	cout << pointQuadtree.search(1,1) << endl;
+	cout << pointQuadtree.search(7,8) << endl;
+	cout << pointQuadtree.search(7,7) << endl;
+	cout << pointQuadtree.search(80,44) << endl;
+	
 	//traverse tree using level order traversal
 	cout << "Level Order Traversal using BFS: ";
 	pointQuadtree.levelOrderTraversal(root);
