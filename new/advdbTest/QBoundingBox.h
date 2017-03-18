@@ -8,6 +8,8 @@
 #include "QuadTreeLib.h"
 #include "QPoint.h"
 
+
+
 class QBoundingBox : public QPoint
 {
 private:

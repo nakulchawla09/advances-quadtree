@@ -7,6 +7,7 @@
 
 #include "QuadTreeLib.h"
 
+
 class QPoint {
     float x;
     float y;
@@ -38,5 +39,6 @@ public:
         this->id = id;
     }
 };
+
 
 #endif //ADVDBTEST_QPOINT_H

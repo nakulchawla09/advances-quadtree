@@ -6,17 +6,18 @@
 #define ADVDBTEST_QUADTREE_H
 
 #include "QuadTreeLib.h"
-#include "QPoint.h"
+#include "QuadNode.h"
 using namespace std;
 
-template <class QPoint>
+
 class QuadTree {
 
-//    virtual QuadNode getRoot() = 0;
+    virtual QuadNode getRoot() = 0;
 
-    virtual vector<QPoint> queryRange(double x, double y, double width, double height) = 0;
+    virtual vector<QPoint*> queryRange(float x, float y, float width, float height) = 0;
 
-    virtual bool insert(double x, double y) = 0 ;
+    virtual bool insert(float x, float y) = 0 ;
+
 
 };
 
