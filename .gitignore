@@ -64,4 +64,7 @@ hs_err_pid*
 **/.idea/workspace.xml
 **/.idea/libraries
 
+#Clion
+**/cmake-build-debug
+
 *.DS_Store
