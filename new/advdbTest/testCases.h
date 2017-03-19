@@ -165,18 +165,54 @@ void prQuadTreeTestCase2()
     cout<<"\n\nprQuadTree 2 - Query Range 11"<<endl;
     printprQuadTreeRange(prQT,29,19,1,1);   //works fine if we consider a point lying on quadrant division line is not to be included.
 
+    cout<<"\n\nprQuadTree 2 - Query Range 12"<<endl;
+    printprQuadTreeRange(prQT,15,15,30,10);   //works fine
+
     /**
      * CONCLUSION: parameter height and width does not include points that lie on them,
      *             but parameters x and y include a points that lie on them
      */
 }
 
+//testcase 3:
+vector<QPoint*> pointsTestCase3(){
+    vector<QPoint*> vQPoint;
+    vQPoint.push_back(new QPoint(100,100,5));
+    vQPoint.push_back(new QPoint(150,150,6));
+    vQPoint.push_back(new QPoint(175,175,7));
+    vQPoint.push_back(new QPoint(187.5,187.5,8));
+    vQPoint.push_back(new QPoint(193.75,193.75,9));
+    return vQPoint;
+
+}
+
+void prQuadTreeTestCase3()
+{
+    cout<<"\n\nprQuadTree 1"<<endl;
+    prQuadTree *prQT = new prQuadTree(0,0,400,400);
+    vector<QPoint*> testQPoints=pointsTestCase3();
+    for(int i=0;i<testQPoints.size();i++) {
+        prQT->insert(testQPoints[i]);
+    }
+    prQT->print();
+    cout<<"\n\n\n\n\n"<<endl;
+    cout<<"\n\nprQuadTree 3 - Query Range 1"<<endl;
+    printprQuadTreeRange(prQT,0,0,400,400);
+
+    /**
+     * CONCLUSION: Works fine
+     */
+
+
+}
 
 
 void testprQuadTree()
 {
     //prQuadTreeTestCase1();
     prQuadTreeTestCase2();
+    //prQuadTreeTestCase3();
+
 
 }
 
