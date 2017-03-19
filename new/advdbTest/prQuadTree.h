@@ -22,19 +22,29 @@ public:
 
     prQuadTree(){}
     prQuadTree(float originX, float originY, float width, float height) {
-        QPoint *xyPoint = new QPoint(originX,originY);
+        float x = originX - width/2;
+        float y = originY - height/2;
+        QPoint *xyPoint = new QPoint(x,y);
         QBoundingBox *QBB = new QBoundingBox(xyPoint,width,height);
         root = new prQuadNode( *QBB );
     }
 
     prQuadTree(float width, float height) {
-        QPoint *xyPoint = new QPoint(0,0);
+        float x = 0 - width/2;
+        float y = 0 - height/2;
+        QPoint *xyPoint = new QPoint(x,y);
         QBoundingBox *QBB = new QBoundingBox(xyPoint,width,height);
         root = new prQuadNode( *QBB );
     }
 
     QuadNode* getRoot() {
         return root;
+    }
+
+    bool insert(QPoint *xyPoint) {
+        //QPoint *xyPoint = new QPoint(x,y);
+
+        return (*root).insert(xyPoint);
     }
 
     bool insert(float x, float y) {
@@ -47,6 +57,42 @@ public:
         QPoint *xyPoint = new QPoint(x,y,id);
 
         return (*root).insert(xyPoint);
+    }
+
+    void print(string prefix = "", bool emptyLine = false)
+    {
+        if(emptyLine) cout<<endl;
+        cout<<prefix<< "Root Node | ";
+        if(root!=NULL)
+        {
+            print(root,"*",true);
+        }
+
+
+    }
+
+    void print(prQuadNode *node, string prefix = "", bool emptyLine = false)
+    {
+        if(node!=NULL)
+        {
+//            if(node->qbb.getMinX()>=0 && node->qbb.getMinY()>=0)
+//            {
+//                node->print(prefix,true);
+//            }
+            node->print(prefix,true);
+
+            if(node->prqnNE != NULL && node->prqnNW != NULL && node->prqnSE != NULL && node->prqnSW != NULL)
+            {
+                prefix += "\t";
+                print(node->prqnNW,prefix + " | NW |",true);
+                print(node->prqnNE,prefix + " | NE |",true);
+                print(node->prqnSW,prefix + " | SW |",true);
+                print(node->prqnSE,prefix + " | SE |",true);
+
+            }
+        }
+
+
     }
 
 };

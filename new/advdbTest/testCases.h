@@ -30,13 +30,13 @@ void testPoints()
 
 void testQBoundingBox()
 {
-    cout<<"\n\nQBoundingBox 1"<<endl;
-    QBoundingBox *tqbb1 = new QBoundingBox(100,100);
-    tqbb1->print();
-    tqbb1->set(200,100);
-    tqbb1->print();
-    tqbb1->set(10,10,200,100);
-    tqbb1->print();
+//    cout<<"\n\nQBoundingBox 1"<<endl;
+//    QBoundingBox *tqbb1 = new QBoundingBox(100,100);
+//    tqbb1->print();
+//    tqbb1->set(200,100);
+//    tqbb1->print();
+//    tqbb1->set(10,10,200,100);
+//    tqbb1->print();
 
     cout<<"\n\nQBoundingBox 2"<<endl;
     QBoundingBox *tqbb2 = new QBoundingBox(0,0,100,100);
@@ -55,16 +55,37 @@ void testprQuadNode()
     prQuadNode1->print();
 
     cout<<"\n\nprQuadNode 2"<<endl;
-    QBoundingBox *tqbb1 = new QBoundingBox(100,100);
+    QBoundingBox *tqbb1 = new QBoundingBox(0,0,100,100);
     prQuadNode *prQuadNode2= new prQuadNode(*tqbb1);
     prQuadNode2->print();
 
 
 }
 
+vector<QPoint*> pointsTestCase1(){
+    vector<QPoint*> vQPoint;
+    vQPoint.push_back(new QPoint(20,20,5));
+    vQPoint.push_back(new QPoint(30,30,6));
+    vQPoint.push_back(new QPoint(40,40,7));
+//    vQPoint.push_back(new QPoint(50,50,8));
+//    vQPoint.push_back(new QPoint(25,25,9));
+    vQPoint.push_back(new QPoint(22,22,10));
+    vQPoint.push_back(new QPoint(42,42,11));
+
+    return vQPoint;
+
+}
+
 void prQuadTreeTestCase1()
 {
-
+    cout<<"\n\nprQuadTree 1"<<endl;
+    prQuadTree *prQT = new prQuadTree(0,0,200,200);
+    vector<QPoint*> testQPoints=pointsTestCase1();
+    for(int i=0;i<testQPoints.size();i++) {
+        prQT->insert(testQPoints[i]);
+    }
+    cout<<"Dude"<<endl;
+    prQT->print();
 }
 
 void testprQuadTree()

@@ -4,8 +4,8 @@ int main() {
     cout << "Hello, World" << endl;
 //    testPoints();
 //    testQBoundingBox();
-    testprQuadNode();
-
+//    testprQuadNode();
+    testprQuadTree();
     return 0;
 }
 

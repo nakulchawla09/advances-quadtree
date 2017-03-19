@@ -18,7 +18,6 @@ class QuadTree {
 
     virtual bool insert(float x, float y) = 0 ;
 
-
 };
 
 #endif //ADVDBTEST_QUADTREE_H

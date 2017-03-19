@@ -53,6 +53,16 @@ public:
     }
 
 
+    float getMinX() {
+        return minX;
+    }
+
+    float getMinY() {
+        return minY;
+    }
+
+
+
     void setHeight(float height)
     {
         this->height = height;

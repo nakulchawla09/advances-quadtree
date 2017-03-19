@@ -14,6 +14,9 @@ protected:
     int leafCapacity;
     int maxHeight;
 
+
+public:
+
     int height;
     vector<QPoint> points;
     prQuadNode *prqnNW;
@@ -21,12 +24,11 @@ protected:
     prQuadNode *prqnSW;
     prQuadNode *prqnSE;
 
-public:
 
     prQuadNode() {}
     prQuadNode(QBoundingBox QBB)
     {
-        height = 1;
+        height = 0;
         leafCapacity = 4;
         maxHeight = 20;
         (*this).qbb = QBB;
@@ -38,7 +40,7 @@ public:
     }
     prQuadNode(int originX, int originY, float width, float height)
     {
-        height = 1;
+        height = 0;
         leafCapacity = 4;
         maxHeight = 20;
         QBoundingBox *QBB = new QBoundingBox(originX, originY, width, height);
@@ -68,7 +70,10 @@ public:
         }
 
         if (isLeaf() && height<maxHeight)
+        {
             subdivide();
+        }
+
         return insertIntoChildren(point);
 }
 
@@ -89,22 +94,25 @@ public:
         float h = qbb.getHeight()/2;
         float w = qbb.getWidth()/2;
 
-        QPoint *pNW = new QPoint(qbb.getX(),qbb.getY());
+        float current_x = qbb.getX() + w;
+        float current_y = qbb.getY() + h;
+
+        QPoint *pNW = new QPoint(current_x-w,current_y);
         QBoundingBox *qbbNW = new QBoundingBox( pNW, w, h);
         this->prqnNW = new prQuadNode(*qbbNW);
         this->prqnNW->height = this->height + 1;
 
-        QPoint *pNE = new QPoint(qbb.getX()-w,qbb.getY());
+        QPoint *pNE = new QPoint(current_x,current_y);
         QBoundingBox *qbbNE = new QBoundingBox( pNE, w, h);
         this->prqnNE = new prQuadNode(*qbbNE);
         this->prqnNE->height = this->height + 1;
 
-        QPoint *pSW = new QPoint(qbb.getX()-w,qbb.getY()-h);
+        QPoint *pSW = new QPoint(current_x-w,current_y-h);
         QBoundingBox *qbbSW =new QBoundingBox( pSW, w, h);
         this->prqnSW = new prQuadNode(*qbbSW);
         this->prqnSW->height = this->height + 1;
 
-        QPoint *pSE = new QPoint(qbb.getX(),qbb.getY()-h);
+        QPoint *pSE = new QPoint(current_x,current_y-h);
         QBoundingBox *qbbSE =new QBoundingBox( pSE, w, h);
         this->prqnSE = new prQuadNode(*qbbSE);
         this->prqnSE->height = this->height + 1;
@@ -113,7 +121,7 @@ public:
         for (int i=0; i<points.size(); i++)
             insertIntoChildren(&points[i]);
         points.clear();
-
+        cout<<"***************************************"<<points.size()<<endl;
     }
 
     void pointsPrint()
@@ -124,27 +132,17 @@ public:
         cout<<endl;
     }
 
+
+
     void print(string prefix = "", bool emptyLine = false)
     {
         if(emptyLine) cout<<endl;
-        cout<<prefix<< "prQuadNode | leafCapacity : "<<this->leafCapacity<<" | maxHeight : "<<this->maxHeight<<endl;
+//        cout<<prefix<< "prQuadNode | leafCapacity : "<<this->leafCapacity<<" | maxHeight : "<<this->maxHeight<<endl;
         cout<<prefix<< "prQuadNode | height : "<<this->height<<endl;
         cout<<prefix<< "prQuadNode | ";
         this->qbb.print("\t\t",true);
-        cout<<prefix<< "prQuadNode | points -> ";
+        cout<<prefix<< "prQuadNode | points -> "<<this->points.size();
         pointsPrint();
-        if(prqnNW != NULL)
-        {
-            cout<<prefix<< "prQuadNode | northWest -> ";
-            this->prqnNW->print("\t");
-            cout<<prefix<< "prQuadNode | northEast -> ";
-            this->prqnNE->print("\t");
-            cout<<prefix<< "prQuadNode | southWest -> ";
-            this->prqnSW->print("\t");
-            cout<<prefix<< "prQuadNode | southEast -> ";
-            this->prqnSE->print("\t");
-
-        }
 
     }
 
