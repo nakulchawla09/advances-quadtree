@@ -8,7 +8,7 @@
 #include "QuadTreeLib.h"
 #include "QPoint.h"
 
-
+using namespace std;
 
 class QBoundingBox : public QPoint
 {
@@ -31,11 +31,16 @@ public:
     {
         this->setHeight(height);
         this->setWidth(width);
+        this->setMin(0,0);
+        this->setMax(width,height);
+    }
 
-        this->minX = 0;
-        this->minY = 0;
-        this->maxX = width;
-        this->maxY = height;
+    QBoundingBox(int originX, int originY, float width, float height):QPoint(originX,originY)
+    {
+        this->setHeight(height);
+        this->setWidth(width);
+        this->setMin(originX,originY);
+        this->setMax(originX + width,originY + height);
 
     }
 
@@ -43,31 +48,16 @@ public:
     {
         this->setHeight(height);
         this->setWidth(width);
-
-        this->minX = (*downLeft).getX();
-        this->minY = (*downLeft).getY();
-        this->maxX = (*downLeft).getX()+width;
-        this->maxY = (*downLeft).getY()+height;
-
+        this->setMin((*downLeft).getX(),(*downLeft).getY());
+        this->setMax((*downLeft).getX() + width,(*downLeft).getY() + height);
     }
 
-    void set(QPoint (*downLeft), float width, float height)
-    {
-        this->setHeight(height);
-        this->setWidth(width);
-
-        this->minX = (*downLeft).getX();
-        this->minY = (*downLeft).getY();
-        this->maxX = (*downLeft).getX()+width;
-        this->maxY = (*downLeft).getY()+height;
-
-    }
 
     void setHeight(float height)
     {
         this->height = height;
     }
-    
+
     float getHeight() {
         return height;
     }
@@ -80,6 +70,42 @@ public:
     float getWidth() {
         return width;
     }
+
+    void setMin(float x, float y )
+    {
+        this->minX = x;
+        this->minY = y;
+    }
+
+    void setMax(float x, float y )
+    {
+        this->maxX = x;
+        this->maxY = y;
+    }
+
+    void set(float width, float height)
+    {
+        this->setHeight(height);
+        this->setWidth(width);
+        this->setMax(this->minX+ width,this->minY + height);
+    }
+
+    void set(int originX, int originY, float width, float height)
+    {
+        this->setHeight(height);
+        this->setWidth(width);
+        this->setMin(originX,originY);
+        this->setMax(originX + width,originY + height);
+    }
+
+    void set(QPoint (*downLeft), float width, float height)
+    {
+        this->setHeight(height);
+        this->setWidth(width);
+        this->setMin((*downLeft).getX(),(*downLeft).getY());
+        this->setMax((*downLeft).getX() + width,(*downLeft).getY() + height);
+    }
+
 
     bool containsPoint(QPoint *point) {
 
@@ -103,6 +129,13 @@ public:
         return true;
     }
 
+    void print()
+    {
+        cout<< "QBoundingBox:QPoint | X : "<<this->getX()<<" | Y : "<<this->getY()<<" | ID : "<<this->getId()<<endl;
+        cout<< "QBoundingBox | Height : "<<this->getHeight()<<" | Width : "<<this->getWidth()<<endl;
+        cout<< "QBoundingBox | minX : "<<this->minX<<" | minY : "<<this->minY<<endl;
+        cout<< "QBoundingBox | maxX : "<<this->maxX<<" | maxY : "<<this->maxY<<endl;
+    }
 
 };
 

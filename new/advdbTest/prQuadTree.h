@@ -33,7 +33,21 @@ public:
         root = new prQuadNode( *QBB );
     }
 
+    QuadNode* getRoot() {
+        return root;
+    }
 
+    bool insert(float x, float y) {
+        QPoint *xyPoint = new QPoint(x,y);
+
+        return (*root).insert(xyPoint);
+    }
+
+    bool insert(float x, float y, int id) {
+        QPoint *xyPoint = new QPoint(x,y,id);
+
+        return (*root).insert(xyPoint);
+    }
 
 };
 

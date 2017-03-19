@@ -16,30 +16,53 @@ class QPoint {
 public:
     QPoint() {}
     QPoint(float x, float y)
-    {   this->x = x;
+    {   this->set(x,y);
+    }
+    QPoint(float x, float y, int id)
+    {   this->set(x,y);
+        this->setId(id);
+    }
+
+    void setId(int id){
+        this->id = id;
+    }
+
+    void setX(float x){
+        this->x = x;
+    }
+
+    void setY(float y){
         this->y = y;
     }
 
-    void set(float x,float y)
+    virtual void set(float x,float y)
     {
-        this->x = x;
-        this->y = y;
+        this->setX(x);
+        this->setY(y);
     }
+
+    virtual void set(float x,float y,int id)
+    {
+        this->set(x,y);
+        this->setId(id);
+    }
+
     float getX()
     {
         return x;
     }
+
     float getY()
     {
         return y;
     }
+
     int getId()
     {
         return id;
     }
-    void setId(int id){
-        this->id = id;
-    }
+
+
 
     bool isIn(vector<QPoint> points)
     {
@@ -48,6 +71,11 @@ public:
                 return true;
         }
         return false;
+    }
+
+    void print()
+    {
+        cout<< "Point | X : "<<this->getX()<<" | Y : "<<this->getY()<<" | ID : "<<this->getId()<<endl;
     }
 };
 
