@@ -163,7 +163,7 @@ public:
         cout<<prefix<< "prQuadNode | ";
         this->qbb.print("\t\t",true);
         cout<<prefix<< "prQuadNode | points -> "<<this->points.size();
-        pointsPrint();
+        if(points.size()>0)pointsPrint();
 
     }
 

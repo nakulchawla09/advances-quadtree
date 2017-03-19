@@ -12,6 +12,7 @@
 #include "QuadTree.h"
 #include "prQuadNode.h"
 #include "prQuadTree.h"
+#include "mxcifQuadNode.h"
 
 using namespace std;
 
@@ -38,13 +39,13 @@ void testPoints()
 
 void testQBoundingBox()
 {
-//    cout<<"\n\nQBoundingBox 1"<<endl;
-//    QBoundingBox *tqbb1 = new QBoundingBox(100,100);
-//    tqbb1->print();
-//    tqbb1->set(200,100);
-//    tqbb1->print();
-//    tqbb1->set(10,10,200,100);
-//    tqbb1->print();
+    cout<<"\n\nQBoundingBox 1"<<endl;
+    QBoundingBox *tqbb1 = new QBoundingBox(100,100);
+    tqbb1->print();
+    tqbb1->set(200,100);
+    tqbb1->print();
+    tqbb1->set(10,10,200,100);
+    tqbb1->print();
 
     cout<<"\n\nQBoundingBox 2"<<endl;
     QBoundingBox *tqbb2 = new QBoundingBox(0,0,100,100);
