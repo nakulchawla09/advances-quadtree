@@ -15,23 +15,14 @@ public:
     static int maxHeight;
 
     int height;
+    vector<QPoint> points;
     prQuadNode *prqnNW;
     prQuadNode *prqnNE;
     prQuadNode *prqnSW;
     prQuadNode *prqnSE;
 
-    prQuadNode()
-    {
-        height = 1;
-        (*this).prqnNW = NULL;
-        (*this).prqnNE = NULL;
-        (*this).prqnSW = NULL;
-        (*this).prqnSE = NULL;
-    }
-
-    vector<QPoint> points;
-
-    prQuadNode(QBoundingBox QBB):prQuadNode( QBB )
+    prQuadNode() {}
+    prQuadNode(QBoundingBox QBB): QuadNode( QBB )
     {
         height = 1;
         (*this).prqnNW = NULL;
@@ -40,8 +31,6 @@ public:
         (*this).prqnSE = NULL;
 
     }
-
-
 
     bool isLeaf() {
         return (prqnNW == NULL && prqnNE == NULL && prqnSW == NULL && prqnSE == NULL);
@@ -51,9 +40,11 @@ public:
     bool insert(QPoint *point)
     {
 
-    if ( !qbb.containsPoint(point) || ( isLeaf() && point->isIn(points) ) )
-        return false;
+//    if ( !qbb.containsPoint(point) || ( isLeaf() && point->isIn(points) ) )
+//        return false;
 
+        if ( !qbb.containsPoint(point) )
+            return false;
 
     if (( isLeaf() && points.size() < leafCapacity )  || ( height == maxHeight ) )
     {
@@ -108,10 +99,7 @@ public:
             insertIntoChildren(&points[i]);
         points.clear();
 
-
-
-
- }
+    }
 
 };
 

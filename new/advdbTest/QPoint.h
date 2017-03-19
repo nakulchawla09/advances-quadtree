@@ -20,9 +20,9 @@ public:
         this->y = y;
     }
 
-    bool  operator==(const QPoint& rhsNode){
-        return this->x==rhsNode.x && this->y==rhsNode.y;
-    }
+//    bool  operator==(const QPoint& rhsNode){
+//        return this->x==rhsNode.x && this->y==rhsNode.y;
+//    }
 
     void set(float x,float y)
     {
@@ -45,10 +45,10 @@ public:
         this->id = id;
     }
 
-    bool isIn(vector<QPoint> points)
-    {
-        return find(points.begin(), points.end(), this) != points.end() ;
-    }
+//    bool isIn(vector<QPoint> points)
+//    {
+//        return find(points.begin(), points.end(), this) != points.end() ;
+//    }
 };
 
 
