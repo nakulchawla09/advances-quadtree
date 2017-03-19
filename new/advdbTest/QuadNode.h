@@ -16,20 +16,18 @@ public :
     QBoundingBox qbb;
 
 
-    QuadNode() {
-    }
+    QuadNode() {}
 
     QuadNode(QBoundingBox QBB)
     {
         (*this).qbb = QBB;
     }
 
-    virtual bool insert(QPoint *object) = 0;
+    virtual bool insert(QPoint *point) = 0;
 
-//    virtual bool remove(QPoint *object) = 0;
+//    virtual bool remove(QPoint *point) = 0;
 
-//    virtual void queryRange(QBoundingBox *range, vector<QPoint*> objectsInRange) = 0;
-
+    virtual void queryRange(QBoundingBox range, vector<QPoint> &pointsInRange) = 0;
 
 
 };
