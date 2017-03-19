@@ -24,7 +24,7 @@ private:
 
 public:
 
-    QBoundingBox();
+    QBoundingBox(){}
 
 
     QBoundingBox(float width, float height):QPoint(0,0)
@@ -129,12 +129,13 @@ public:
         return true;
     }
 
-    void print()
+    void print(string prefix = "", bool emptyLine = false)
     {
-        cout<< "QBoundingBox:QPoint | X : "<<this->getX()<<" | Y : "<<this->getY()<<" | ID : "<<this->getId()<<endl;
-        cout<< "QBoundingBox | Height : "<<this->getHeight()<<" | Width : "<<this->getWidth()<<endl;
-        cout<< "QBoundingBox | minX : "<<this->minX<<" | minY : "<<this->minY<<endl;
-        cout<< "QBoundingBox | maxX : "<<this->maxX<<" | maxY : "<<this->maxY<<endl;
+        if(emptyLine)cout<<endl;
+        cout<<prefix<< "QBoundingBox:QPoint | X : "<<this->getX()<<" | Y : "<<this->getY()<<" | ID : "<<this->getId()<<endl;
+        cout<<prefix<< "QBoundingBox | Height : "<<this->getHeight()<<" | Width : "<<this->getWidth()<<endl;
+        cout<<prefix<< "QBoundingBox | minX : "<<this->minX<<" | minY : "<<this->minY<<endl;
+        cout<<prefix<< "QBoundingBox | maxX : "<<this->maxX<<" | maxY : "<<this->maxY<<endl;
     }
 
 };

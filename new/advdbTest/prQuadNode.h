@@ -10,7 +10,7 @@
 
 class prQuadNode : public QuadNode
 {
-public:
+protected:
     int leafCapacity;
     int maxHeight;
 
@@ -21,12 +21,28 @@ public:
     prQuadNode *prqnSW;
     prQuadNode *prqnSE;
 
+public:
+
     prQuadNode() {}
-    prQuadNode(QBoundingBox QBB): QuadNode( QBB )
+    prQuadNode(QBoundingBox QBB)
     {
         height = 1;
         leafCapacity = 4;
         maxHeight = 20;
+        (*this).qbb = QBB;
+        (*this).prqnNW = NULL;
+        (*this).prqnNE = NULL;
+        (*this).prqnSW = NULL;
+        (*this).prqnSE = NULL;
+
+    }
+    prQuadNode(int originX, int originY, float width, float height)
+    {
+        height = 1;
+        leafCapacity = 4;
+        maxHeight = 20;
+        QBoundingBox *QBB = new QBoundingBox(originX, originY, width, height);
+        (*this).qbb = *QBB;
         (*this).prqnNW = NULL;
         (*this).prqnNE = NULL;
         (*this).prqnSW = NULL;
@@ -42,18 +58,18 @@ public:
     bool insert(QPoint *point)
     {
 
-    if ( !qbb.containsPoint(point) || ( isLeaf() && point->isIn(points) ) )
-        return false;
+        if ( !qbb.containsPoint(point) || ( isLeaf() && point->isIn(points) ) )
+            return false;
 
-    if (( isLeaf() && points.size() < leafCapacity )  || ( height == maxHeight ) )
-    {
-        points.push_back(*point);
-        return true;
-    }
+        if (( isLeaf() && points.size() < leafCapacity )  || ( height == maxHeight ) )
+        {
+            points.push_back(*point);
+            return true;
+        }
 
-    if (isLeaf() && height<maxHeight)
-        subdivide();
-    return insertIntoChildren(point);
+        if (isLeaf() && height<maxHeight)
+            subdivide();
+        return insertIntoChildren(point);
 }
 
 
@@ -97,6 +113,38 @@ public:
         for (int i=0; i<points.size(); i++)
             insertIntoChildren(&points[i]);
         points.clear();
+
+    }
+
+    void pointsPrint()
+    {
+        cout<<endl;
+        for (int i=0; i<points.size(); i++)
+            points[i].print("\t\t");
+        cout<<endl;
+    }
+
+    void print(string prefix = "", bool emptyLine = false)
+    {
+        if(emptyLine) cout<<endl;
+        cout<<prefix<< "prQuadNode | leafCapacity : "<<this->leafCapacity<<" | maxHeight : "<<this->maxHeight<<endl;
+        cout<<prefix<< "prQuadNode | height : "<<this->height<<endl;
+        cout<<prefix<< "prQuadNode | ";
+        this->qbb.print("\t\t",true);
+        cout<<prefix<< "prQuadNode | points -> ";
+        pointsPrint();
+        if(prqnNW != NULL)
+        {
+            cout<<prefix<< "prQuadNode | northWest -> ";
+            this->prqnNW->print("\t");
+            cout<<prefix<< "prQuadNode | northEast -> ";
+            this->prqnNE->print("\t");
+            cout<<prefix<< "prQuadNode | southWest -> ";
+            this->prqnSW->print("\t");
+            cout<<prefix<< "prQuadNode | southEast -> ";
+            this->prqnSE->print("\t");
+
+        }
 
     }
 

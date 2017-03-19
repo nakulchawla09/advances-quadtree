@@ -73,9 +73,10 @@ public:
         return false;
     }
 
-    void print()
+    void print(string prefix = "", bool emptyLine = false)
     {
-        cout<< "Point | X : "<<this->getX()<<" | Y : "<<this->getY()<<" | ID : "<<this->getId()<<endl;
+        if(emptyLine)cout<<endl;
+        cout<<prefix<< "Point | X : "<<this->getX()<<" | Y : "<<this->getY()<<" | ID : "<<this->getId()<<endl;
     }
 };
 

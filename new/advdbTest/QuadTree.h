@@ -10,14 +10,14 @@
 using namespace std;
 
 
-class QuadTree
-{
+class QuadTree {
 
-    virtual QuadNode* getRoot() = 0;
+    virtual QuadNode getRoot() = 0;
 
 //    virtual vector<QPoint*> queryRange(float x, float y, float width, float height) = 0;
 
     virtual bool insert(float x, float y) = 0 ;
+
 
 };
 

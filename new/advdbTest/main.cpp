@@ -2,15 +2,15 @@
 #include "QPoint.h"
 #include "QBoundingBox.h"
 #include "QuadNode.h"
-#include "QuadTree.h"
+//#include "QuadTree.h"
 #include "prQuadNode.h"
-#include "prQuadTree.h"
+//#include "prQuadTree.h"
 
 using namespace std;
 
 void testPoints()
 {
-    cout<<"Point 1"<<endl;
+    cout<<"\n\nPoint 1"<<endl;
     QPoint *tPoint1 = new QPoint(0,0);
     tPoint1->print();
     tPoint1->set(2.5,2.8);
@@ -23,7 +23,7 @@ void testPoints()
 
 void testQBoundingBox()
 {
-    cout<<"QBoundingBox 1"<<endl;
+    cout<<"\n\nQBoundingBox 1"<<endl;
     QBoundingBox *tqbb1 = new QBoundingBox(100,100);
     tqbb1->print();
     tqbb1->set(200,100);
@@ -41,10 +41,26 @@ void testQBoundingBox()
 
 }
 
+void testprQuadNode()
+{
+    cout<<"\n\nprQuadNode 1"<<endl;
+    prQuadNode *prQuadNode1= new prQuadNode();
+    prQuadNode1->print();
+
+    cout<<"\n\nprQuadNode 2"<<endl;
+    QBoundingBox *tqbb1 = new QBoundingBox(100,100);
+    prQuadNode *prQuadNode2= new prQuadNode(*tqbb1);
+    prQuadNode2->print();
+
+
+}
+
 int main() {
     cout << "Hello, World" << endl;
-    testPoints();
-    testQBoundingBox();
+//    testPoints();
+//    testQBoundingBox();
+//    testprQuadNode();
+
     return 0;
 }
 

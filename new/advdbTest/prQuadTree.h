@@ -21,8 +21,8 @@ private:
 public:
 
     prQuadTree(){}
-    prQuadTree(float x, float y, float width, float height) {
-        QPoint *xyPoint = new QPoint(x,y);
+    prQuadTree(float originX, float originY, float width, float height) {
+        QPoint *xyPoint = new QPoint(originX,originY);
         QBoundingBox *QBB = new QBoundingBox(xyPoint,width,height);
         root = new prQuadNode( *QBB );
     }
@@ -33,7 +33,7 @@ public:
         root = new prQuadNode( *QBB );
     }
 
-    QuadNode* getRoot() {
+    prQuadNode* getRoot() {
         return root;
     }
 

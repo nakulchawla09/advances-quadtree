@@ -7,5 +7,6 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 
 #endif //ADVDBTEST_QUADTREELIB_H

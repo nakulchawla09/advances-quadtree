@@ -26,10 +26,10 @@ public :
 
     virtual bool insert(QPoint *object) = 0;
 
-
 //    virtual bool remove(QPoint *object) = 0;
 
 //    virtual void queryRange(QBoundingBox *range, vector<QPoint*> objectsInRange) = 0;
+
 
 
 };
