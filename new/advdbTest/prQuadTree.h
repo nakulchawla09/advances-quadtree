@@ -33,7 +33,7 @@ public:
         root = new prQuadNode( *QBB );
     }
 
-    prQuadNode* getRoot() {
+    QuadNode* getRoot() {
         return root;
     }
 
