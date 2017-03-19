@@ -1,0 +1,1 @@
+/usr/bin/c++   -g    CMakeFiles/advdbTest.dir/main.cpp.o  -o advdbTest -rdynamic 
