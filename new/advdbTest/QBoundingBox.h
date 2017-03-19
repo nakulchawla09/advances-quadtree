@@ -39,27 +39,27 @@ public:
 
     }
 
-    QBoundingBox(QPoint downLeft, float width, float height):QPoint(downLeft.getX(),downLeft.getY())
+    QBoundingBox(QPoint *downLeft, float width, float height):QPoint((*downLeft).getX(),(*downLeft).getY())
     {
         this->setHeight(height);
         this->setWidth(width);
 
-        this->minX = downLeft.getX();
-        this->minY = downLeft.getY();
-        this->maxX = downLeft.getX()+width;
-        this->maxY = downLeft.getY()+height;
+        this->minX = (*downLeft).getX();
+        this->minY = (*downLeft).getY();
+        this->maxX = (*downLeft).getX()+width;
+        this->maxY = (*downLeft).getY()+height;
 
     }
 
-    void set(QPoint downLeft, float width, float height)
+    void set(QPoint (*downLeft), float width, float height)
     {
         this->setHeight(height);
         this->setWidth(width);
 
-        this->minX = downLeft.getX();
-        this->minY = downLeft.getY();
-        this->maxX = downLeft.getX()+width;
-        this->maxY = downLeft.getY()+height;
+        this->minX = (*downLeft).getX();
+        this->minY = (*downLeft).getY();
+        this->maxX = (*downLeft).getX()+width;
+        this->maxY = (*downLeft).getY()+height;
 
     }
 
@@ -81,30 +81,25 @@ public:
         return width;
     }
 
-    bool containsPoint(QPoint p) {
+    bool containsPoint(QPoint *point) {
 
-        if ( p.getX() >= maxX ) return false;
-        if ( p.getX() < minX) return false;
-        if ( p.getY() >= maxY ) return false;
-        if ( p.getY() < minY ) return false;
+        if ( (*point).getX() >= maxX ) return false;
+        if ( (*point).getX() < minX ) return false;
+        if ( (*point).getY() >= maxY ) return false;
+        if ( (*point).getY() < minY ) return false;
         return true;
     }
 
-    bool insideThis(QBoundingBox Qbox) {
-        return ((Qbox.minX >= minX && Qbox.maxX <= maxX) && (Qbox.minY >= minY && Qbox.maxY <= maxY));
+    bool insideThis(QBoundingBox (*boundingBox)) {
+        return (((*boundingBox).minX >= minX && (*boundingBox).maxX <= maxX) && ((*boundingBox).minY >= minY && (*boundingBox).maxY <= maxY));
     }
 
-     bool intersectsBox(QBoundingBox Qbox) {
-        if (insideThis(Qbox) || Qbox.insideThis(*this)) {
-            // INSIDE
-            return true;
-        }
+     bool intersectsBox(QBoundingBox (*boundingBox)) {
+        if (insideThis((boundingBox)) || (*boundingBox).insideThis(this)) return true;
 
-        // OUTSIDE
-        if (maxX < Qbox.minX || minX > Qbox.maxX) return false;
-        if (maxY < Qbox.minY || minY > Qbox.maxY) return false;
+        if (maxX < (*boundingBox).minX || minX > (*boundingBox).maxX) return false;
+        if (maxY < (*boundingBox).minY || minY > (*boundingBox).maxY) return false;
 
-        // INTERSECTS
         return true;
     }
 

@@ -7,6 +7,7 @@
 
 #include "QuadTreeLib.h"
 
+using namespace std;
 
 class QPoint {
     float x;
@@ -18,6 +19,11 @@ public:
     {   this->x = x;
         this->y = y;
     }
+
+    bool  operator==(const QPoint& rhsNode){
+        return this->x==rhsNode.x && this->y==rhsNode.y;
+    }
+
     void set(float x,float y)
     {
         this->x = x;
@@ -37,6 +43,11 @@ public:
     }
     void setId(int id){
         this->id = id;
+    }
+
+    bool isIn(vector<QPoint> points)
+    {
+        return find(points.begin(), points.end(), this) != points.end() ;
     }
 };
 
