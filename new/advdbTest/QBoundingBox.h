@@ -9,6 +9,7 @@
 #include "QPoint.h"
 
 using namespace std;
+int qbbID = -333;
 
 class QBoundingBox : public QPoint
 {
@@ -27,7 +28,7 @@ public:
     QBoundingBox(){}
 
 
-    QBoundingBox(float width, float height):QPoint(0,0)
+    QBoundingBox(float width, float height):QPoint(0,0,qbbID)
     {
         this->setHeight(height);
         this->setWidth(width);
@@ -35,7 +36,7 @@ public:
         this->setMax(width,height);
     }
 
-    QBoundingBox(int originX, int originY, float width, float height):QPoint(originX,originY)
+    QBoundingBox(int originX, int originY, float width, float height):QPoint(originX,originY,qbbID)
     {
         this->setHeight(height);
         this->setWidth(width);

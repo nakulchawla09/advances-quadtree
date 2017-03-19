@@ -9,6 +9,8 @@
 
 using namespace std;
 
+int qpID = -333;
+
 class QPoint {
     float x;
     float y;
@@ -17,6 +19,7 @@ public:
     QPoint() {}
     QPoint(float x, float y)
     {   this->set(x,y);
+        this->setId(qpID);
     }
     QPoint(float x, float y, int id)
     {   this->set(x,y);
@@ -61,7 +64,6 @@ public:
     {
         return id;
     }
-
 
 
     bool isIn(vector<QPoint> points)
