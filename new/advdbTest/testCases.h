@@ -84,7 +84,6 @@ void prQuadTreeTestCase1()
     for(int i=0;i<testQPoints.size();i++) {
         prQT->insert(testQPoints[i]);
     }
-    cout<<"Dude"<<endl;
     prQT->print();
 }
 

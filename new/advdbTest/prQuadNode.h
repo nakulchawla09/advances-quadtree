@@ -121,7 +121,6 @@ public:
         for (int i=0; i<points.size(); i++)
             insertIntoChildren(&points[i]);
         points.clear();
-        cout<<"***************************************"<<points.size()<<endl;
     }
 
     void pointsPrint()
