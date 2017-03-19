@@ -11,8 +11,8 @@
 class prQuadNode : public QuadNode
 {
 public:
-    static int leafCapacity;
-    static int maxHeight;
+    int leafCapacity;
+    int maxHeight;
 
     int height;
     vector<QPoint> points;
@@ -25,6 +25,8 @@ public:
     prQuadNode(QBoundingBox QBB): QuadNode( QBB )
     {
         height = 1;
+        leafCapacity = 4;
+        maxHeight = 20;
         (*this).prqnNW = NULL;
         (*this).prqnNE = NULL;
         (*this).prqnSW = NULL;
