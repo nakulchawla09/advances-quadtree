@@ -65,7 +65,6 @@ public:
         return id;
     }
 
-
     bool isIn(vector<QPoint> points)
     {
         for(int i=0; i<points.size();i++) {
