@@ -13,6 +13,7 @@
 #include "prQuadNode.h"
 #include "prQuadTree.h"
 #include "mxcifQuadNode.h"
+#include "mxcifQuadTree.h"
 
 using namespace std;
 
