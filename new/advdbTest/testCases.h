@@ -15,6 +15,14 @@
 
 using namespace std;
 
+
+void printQPointVectors(vector<QPoint> qP)
+{
+    for(int i=0;i< qP.size();i++) {
+        qP[i].print();
+    }
+}
+
 void testPoints()
 {
     cout<<"\n\nPoint 1"<<endl;
@@ -62,6 +70,15 @@ void testprQuadNode()
 
 }
 
+
+
+void printprQuadTreeRange(prQuadTree *prQT,float x, float y, float width, float height)
+{
+    vector<QPoint> vQPoint = prQT->queryRange(x,y,width,height);
+    printQPointVectors(vQPoint);
+
+}
+
 vector<QPoint*> pointsTestCase1(){
     vector<QPoint*> vQPoint;
     vQPoint.push_back(new QPoint(20,20,5));
@@ -85,7 +102,12 @@ void prQuadTreeTestCase1()
         prQT->insert(testQPoints[i]);
     }
     prQT->print();
+    cout<<"\n\n\n\n\n"<<endl;
+    cout<<"\n\nprQuadTree 1 - Query Range 1"<<endl;
+    printprQuadTreeRange(prQT,0,0,30,30);
 }
+
+
 
 void testprQuadTree()
 {

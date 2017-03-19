@@ -123,6 +123,28 @@ public:
         points.clear();
     }
 
+     void queryRange(QBoundingBox range, vector<QPoint> &pointsInRange) {
+        // Automatically abort if the range does not collide with this quad
+        if (!(*this).qbb.intersectsBox(range))
+            return;
+
+        // If leaf, check objects at this level
+        if (isLeaf()) {
+            for (int i=0; i<points.size(); i++)
+            {
+                if (range.containsPoint(&points[i]))
+                    pointsInRange.push_back(points[i]);
+            }
+            return;
+        }
+
+        // Otherwise, add the points from the children
+         this->prqnNW->queryRange(range,pointsInRange);
+         this->prqnNE->queryRange(range,pointsInRange);
+         this->prqnSW->queryRange(range,pointsInRange);
+         this->prqnSE->queryRange(range,pointsInRange);
+    }
+
     void pointsPrint()
     {
         cout<<endl;

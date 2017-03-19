@@ -95,6 +95,19 @@ public:
 
     }
 
+    vector<QPoint> queryRange(float x, float y, float width, float height) {
+        vector<QPoint> vQPoint;
+        if (root == NULL)
+            return vQPoint;
+
+        XY_POINT.set(x,y);
+        RANGE.set(&XY_POINT,width,height);
+
+        vector<QPoint> pointsInRange;
+        root->queryRange(RANGE,pointsInRange);
+        return pointsInRange;
+    }
+
 };
 
 

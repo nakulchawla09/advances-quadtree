@@ -45,7 +45,7 @@ public:
 
     }
 
-    QBoundingBox(QPoint *downLeft, float width, float height):QPoint((*downLeft).getX(),(*downLeft).getY())
+    QBoundingBox(QPoint *downLeft, float width, float height):QPoint((*downLeft).getX(),(*downLeft).getY(),qbbID)
     {
         this->setHeight(height);
         this->setWidth(width);
@@ -127,15 +127,16 @@ public:
         return true;
     }
 
-    bool insideThis(QBoundingBox (*boundingBox)) {
-        return (((*boundingBox).minX >= minX && (*boundingBox).maxX <= maxX) && ((*boundingBox).minY >= minY && (*boundingBox).maxY <= maxY));
+    bool insideThis(QBoundingBox boundingBox) {
+        return ((boundingBox.minX >= minX && boundingBox.maxX <= maxX) && ( boundingBox.minY >= minY && boundingBox.maxY <= maxY));
     }
 
-     bool intersectsBox(QBoundingBox (*boundingBox)) {
-        if (insideThis((boundingBox)) || (*boundingBox).insideThis(this)) return true;
+     bool intersectsBox(QBoundingBox boundingBox) {
 
-        if (maxX < (*boundingBox).minX || minX > (*boundingBox).maxX) return false;
-        if (maxY < (*boundingBox).minY || minY > (*boundingBox).maxY) return false;
+        if (insideThis(boundingBox) || boundingBox.insideThis(*this)) return true;
+
+        if (maxX < boundingBox.minX || minX > boundingBox.maxX) return false;
+        if (maxY < boundingBox.minY || minY > boundingBox.maxY) return false;
 
         return true;
     }
@@ -143,7 +144,7 @@ public:
     void print(string prefix = "", bool emptyLine = false)
     {
         if(emptyLine)cout<<endl;
-        cout<<prefix<< "QBoundingBox:QPoint | X : "<<this->getX()<<" | Y : "<<this->getY()<<" | ID : "<<this->getId()<<endl;
+        cout<<prefix<< "QBoundingBox : QPoint | X : "<<this->getX()<<" | Y : "<<this->getY()<<" | ID : "<<this->getId()<<endl;
         cout<<prefix<< "QBoundingBox | Height : "<<this->getHeight()<<" | Width : "<<this->getWidth()<<endl;
         cout<<prefix<< "QBoundingBox | minX : "<<this->minX<<" | minY : "<<this->minY<<endl;
         cout<<prefix<< "QBoundingBox | maxX : "<<this->maxX<<" | maxY : "<<this->maxY<<endl;
