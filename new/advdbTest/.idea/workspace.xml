@@ -29,16 +29,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
               <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
               <folding />
+=======
+      <file leaf-file-name="testCases.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Test/testCases.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="26" lean-forward="true" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+              <folding>
+                <element signature="e#108#135#0" expanded="true" />
+              </folding>
+>>>>>>> b39497a7dfef2fc1abf14be3a7c8f89f6a302f90
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="testCasesQPoint.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Test/testCasesQPoint.h">
           <provider selected="true" editor-type-id="text-editor">
@@ -56,6 +68,13 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
               <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="54" />
+=======
+      <file leaf-file-name="testCasesPoint.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Test/testCasesPoint.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="497">
+              <caret line="229" column="43" lean-forward="true" selection-start-line="229" selection-start-column="43" selection-end-line="229" selection-end-column="43" />
+>>>>>>> b39497a7dfef2fc1abf14be3a7c8f89f6a302f90
               <folding>
                 <element signature="e#132#159#0" expanded="true" />
               </folding>
@@ -152,11 +171,16 @@
         <option value="$PROJECT_DIR$/testCasesRectangle.h" />
         <option value="$PROJECT_DIR$/testCasesPoint.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/Test/testCasesmxcifQuadTree.h" />
         <option value="$PROJECT_DIR$/mxcifQuadTree.h" />
         <option value="$PROJECT_DIR$/Test/testCasesRectangle.h" />
         <option value="$PROJECT_DIR$/Test/testCasesprQuadTree.h.h" />
         <option value="$PROJECT_DIR$/UtilityFunctions.h" />
+=======
+        <option value="$PROJECT_DIR$/Test/testCasesRectangle.h" />
+        <option value="$PROJECT_DIR$/Test/testCases.h" />
+>>>>>>> b39497a7dfef2fc1abf14be3a7c8f89f6a302f90
         <option value="$PROJECT_DIR$/Test/testCasesPoint.h" />
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/Test/testCasesQPoint.h" />
@@ -403,13 +427,21 @@
       <option name="presentableId" value="Default" />
       <updated>1489959874768</updated>
       <workItem from="1489959885443" duration="2756000" />
+<<<<<<< HEAD
       <workItem from="1489971129134" duration="2202000" />
       <workItem from="1489973514801" duration="3666000" />
+=======
+      <workItem from="1489971129134" duration="2879000" />
+>>>>>>> b39497a7dfef2fc1abf14be3a7c8f89f6a302f90
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="8624000" />
+=======
+    <option name="totallyTimeSpent" value="5635000" />
+>>>>>>> b39497a7dfef2fc1abf14be3a7c8f89f6a302f90
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -426,11 +458,19 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1864139" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982457" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43912593" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982457" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982457" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1380117" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+>>>>>>> b39497a7dfef2fc1abf14be3a7c8f89f6a302f90
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3298647" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -539,6 +579,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/prQuadNode.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1527">
@@ -647,6 +688,24 @@
           <caret line="21" column="23" lean-forward="false" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
           <folding>
             <element signature="e#108#136#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/Test/testCasesPoint.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="229" column="43" lean-forward="true" selection-start-line="229" selection-start-column="43" selection-end-line="229" selection-end-column="43" />
+          <folding>
+            <element signature="e#72#99#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/testCases.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="26" lean-forward="true" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+          <folding>
+            <element signature="e#108#135#0" expanded="true" />
+>>>>>>> b39497a7dfef2fc1abf14be3a7c8f89f6a302f90
           </folding>
         </state>
       </provider>

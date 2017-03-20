@@ -41,10 +41,9 @@ public:
     mxcifQuadNode* getRoot() { return root; }
 
 
-    bool insert(float x, float y, float width, float height)
-    {
-        x = x - width/2;
-        y = y - height/2;
+    bool insert(float x, float y, float width, float height) {
+        //x = x - width/2;
+        //y = y - height/2;
         QPoint *xyPoint = new QPoint(x,y);
         QBoundingBox *QBB = new QBoundingBox(xyPoint,width,height);
         return (*root).insert(QBB);

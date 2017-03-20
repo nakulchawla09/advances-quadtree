@@ -61,11 +61,11 @@ hs_err_pid*
 
 # Intellij
 *.iml
-**/.idea/
+**/.idea/*
 **/.idea/workspace.xml
 **/.idea/libraries
 
 # Clion
-**/cmake-build-debug/
+**/cmake-build-debug/*
 
 *.DS_Store
