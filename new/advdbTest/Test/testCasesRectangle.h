@@ -1,3 +1,4 @@
+<<<<<<< HEAD:new/advdbTest/Test/testCasesRectangle.h
 
 #ifndef ADVDBTEST_TESTCASESRECTANGLE_H
 #define ADVDBTEST_TESTCASESRECTANGLE_H
@@ -11,6 +12,22 @@
 #include "../prQuadTree.h"
 #include "../mxcifQuadNode.h"
 #include "../mxcifQuadTree.h"
+=======
+//
+// Created by ravichandran on 18/03/17.
+//
+
+#ifndef ADVDBTEST_TESTCASES_H
+#define ADVDBTEST_TESTCASES_H
+
+#include "QuadTreeLib.h"
+#include "QPoint.h"
+#include "QBoundingBox.h"
+#include "prQuadNode.h"
+#include "prQuadTree.h"
+#include "mxcifQuadNode.h"
+#include "mxcifQuadTree.h"
+>>>>>>> 0cf9f9bb025d357c2ad2b26f1ebc69f88623b8ab:new/advdbTest/testCases.h
 
 using namespace std;
 

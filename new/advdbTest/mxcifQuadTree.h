@@ -7,9 +7,8 @@
 
 #include "QuadTreeLib.h"
 #include "mxcifQuadNode.h"
-#include "QuadTree.h"
 
-class mxcifQuadTree : public QuadTree
+class mxcifQuadTree
 {
 
 private:
@@ -21,7 +20,8 @@ private:
 public:
 
     mxcifQuadTree(){}
-    mxcifQuadTree(float originX, float originY, float width, float height) {
+    mxcifQuadTree(float originX, float originY, float width, float height)
+    {
         float x = originX - width/2;
         float y = originY - height/2;
         QPoint *xyPoint = new QPoint(x,y);
@@ -29,7 +29,8 @@ public:
         root = new mxcifQuadNode( *QBB );
     }
 
-    mxcifQuadTree(float width, float height) {
+    mxcifQuadTree(float width, float height)
+    {
         float x = 0 - width/2;
         float y = 0 - height/2;
         QPoint *xyPoint = new QPoint(x,y);
@@ -37,12 +38,11 @@ public:
         root = new mxcifQuadNode( *QBB );
     }
 
-    QuadNode* getRoot() {
-        return root;
-    }
+    mxcifQuadNode* getRoot() { return root; }
 
 
-    bool insert(float x, float y, float width, float height) {
+    bool insert(float x, float y, float width, float height)
+    {
         x = x - width/2;
         y = y - height/2;
         QPoint *xyPoint = new QPoint(x,y);
@@ -50,7 +50,8 @@ public:
         return (*root).insert(QBB);
     }
 
-    bool insert(float width, float height) {
+    bool insert(float width, float height)
+    {
         float x = 0 - width/2;
         float y = 0 - height/2;
         QPoint *xyPoint = new QPoint(x,y);
@@ -58,9 +59,24 @@ public:
         return (*root).insert(QBB);
     }
 
-    bool insert(QBoundingBox *QBB) {
+    bool insert(QBoundingBox *QBB)
+    {
 
         return (*root).insert(QBB);
+    }
+
+    vector<QBoundingBox> queryRange(float x, float y, float width, float height)
+    {
+        vector<QBoundingBox> vQPoint;
+        if (root == NULL)
+            return vQPoint;
+
+        XY_POINT.set(x,y);
+        RANGE.set(&XY_POINT,width,height);
+
+        vector<QBoundingBox> rectsInRange;
+        root->queryRange(RANGE,rectsInRange);
+        return rectsInRange;
     }
 
     void print(string prefix = "", bool emptyLine = false)
@@ -97,19 +113,6 @@ public:
         }
 
 
-    }
-
-    vector<QBoundingBox> queryRange(float x, float y, float width, float height) {
-        vector<QBoundingBox> vQPoint;
-        if (root == NULL)
-            return vQPoint;
-
-        XY_POINT.set(x,y);
-        RANGE.set(&XY_POINT,width,height);
-
-        vector<QBoundingBox> rectsInRange;
-        root->queryRange(RANGE,rectsInRange);
-        return rectsInRange;
     }
 
 };

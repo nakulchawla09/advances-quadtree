@@ -7,9 +7,8 @@
 
 #include "QuadTreeLib.h"
 #include "prQuadNode.h"
-#include "QuadTree.h"
 
-class prQuadTree : public QuadTree
+class prQuadTree
 {
 
 private:
@@ -37,12 +36,11 @@ public:
         root = new prQuadNode( *QBB );
     }
 
-    QuadNode* getRoot() {
+    prQuadNode* getRoot() {
         return root;
     }
 
     bool insert(QPoint *xyPoint) {
-        //QPoint *xyPoint = new QPoint(x,y);
 
         return (*root).insert(xyPoint);
     }

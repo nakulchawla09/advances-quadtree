@@ -6,9 +6,9 @@
 #define ADVDBTEST_MXCIFQUADNODE_H
 
 #include "QuadTreeLib.h"
-#include "QuadNode.h"
+#include "QBoundingBox.h"
 
-class mxcifQuadNode : public QuadNode
+class mxcifQuadNode
 {
 protected:
     
@@ -18,6 +18,7 @@ protected:
 
 public:
 
+    QBoundingBox qbb;
     vector<QBoundingBox> rectangles;
     mxcifQuadNode *mxqnNW;
     mxcifQuadNode *mxqnNE;
@@ -55,8 +56,9 @@ public:
     }
 
 
-    bool insert(QBoundingBox *box)
+    bool insert(QBoundingBox * box)
     {
+
         // Ignore objects which do not belong in this quad tree
         if (!qbb.intersectsBox(*box))
             return false; // object cannot be added
