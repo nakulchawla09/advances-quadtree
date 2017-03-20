@@ -65,7 +65,7 @@ public:
     bool update(RectangleCollection rectangles,float width, float height){
         bool result = true;
         try {
-            //Call MX CIF Tree delete here
+            mxCifTree->deleteRoot();
             createIndex(rectangles,width,height);
         } catch( const char *msg) {
             result = false;
@@ -73,7 +73,15 @@ public:
         return result;
     }
     bool deleteIndex(){
-        //Call MX CIF delete here
+        bool result = true;
+        try {
+
+            mxCifTree->deleteRoot();
+
+        } catch(const char *msg){
+            result = false;
+        }
+        return result;
     }
 };
 #endif //ADVDBTEST_RECTANGLESPATIALINDEX_H
