@@ -59,7 +59,7 @@ public:
     bool update(PointCollection points,float width, float height){
         bool result = true;
         try {
-            //Call PR Tree delete here
+            prTree->deleteRoot();
             createIndex(points,width,height);
         } catch( const char *msg) {
             result = false;
@@ -70,7 +70,15 @@ public:
         throw "Method Not Supported";
     }
     bool deleteIndex(){
-        //Call PR Tree delete here
+        bool result = true;
+        try {
+
+            prTree->deleteRoot();
+
+        } catch(const char *msg){
+            result = false;
+        }
+        return result;
     }
 };
 #endif //ADVDBTEST_POINTSPATIALINDEX_H

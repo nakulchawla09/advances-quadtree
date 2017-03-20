@@ -74,6 +74,20 @@ RectangleSpatialIndex contains the following functions:
 	bool deleteIndex()
 	Deletes index structure for Rectangle Spatial data
 		Returns bool - success status of the delete operation
-		
+
+Images for reference:
+
+Figure 1: Bounding Box Structure 
+![Bounding Box Structure](https://github.com/nakulchawla09/advances-quadtree/blob/master/new/advdbSpatialTest/Test/Images/BoundingBoxStructure.png)
+
+Figure 2: Structure of Quadtree Node
+![Structure of Quadtree Node](https://github.com/nakulchawla09/advances-quadtree/blob/master/new/advdbSpatialTest/Test/Images/StructureOfQuadtreeNode.png)
+
+Figure 3: Points Visualization in Quadtree
+![Points Visualization in Quadtree](https://github.com/nakulchawla09/advances-quadtree/blob/master/new/advdbSpatialTest/Test/Images/TestCase1PointsVisualization.png)
+
+Figure 4: Rectangles Visualization in Quadtree
+![Rectangles Visualization in Quadtree](https://github.com/nakulchawla09/advances-quadtree/blob/master/new/advdbSpatialTest/Test/Images/TestCaseRectangulesVisualization.png)
+
 ========================================================================================================================
 
