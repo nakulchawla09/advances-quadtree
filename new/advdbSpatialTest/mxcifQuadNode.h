@@ -152,14 +152,10 @@ public:
 
     void deleteNode()
     {
-        if( this == NULL )return;
-
         if(this->mxqnNW != NULL)this->mxqnNW->deleteNode();
         if(this->mxqnNE != NULL)this->mxqnNE->deleteNode();
         if(this->mxqnSW != NULL)this->mxqnSW->deleteNode();
         if(this->mxqnSE != NULL)this->mxqnSE->deleteNode();
-
-        if( this != NULL) delete this;
 
     }
 
