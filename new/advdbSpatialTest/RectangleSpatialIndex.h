@@ -31,17 +31,22 @@ private:
     }
 public:
     RectangleSpatialIndex() {}
-    vector<Point> search(Rectangle){
+    PointCollection search(Rectangle){
         throw "Method Not Supported";
     }
-    vector<Rectangle> searchRectangle(Rectangle bounds){
-        vector<Rectangle>result;
+    RectangleCollection searchRectangle(Rectangle bounds){
+        RectangleCollection *result;
         float *queryBounds = computeBounds(&bounds);
         vector<QBoundingBox> iBoxes = mxCifTree->queryRange(queryBounds[0],queryBounds[1],queryBounds[2],queryBounds[3]);
+        Rectangle rectangles[iBoxes.size()];
+        int i=0;
         for(QBoundingBox box : iBoxes) {
-            result.push_back(getRaectangleByUUID("Rectangle",box.getId()));
+            rectangles[i++] = getRaectangleByUUID("Rectangle",box.getId());
         }
-        return result;
+        result = new RectangleCollection(iBoxes.size(),rectangles);
+        delete iBoxes;
+        delete rectangles;
+        return *result;
     }
     void createIndex(PointCollection, float, float){
         throw "Method Not Supported";
