@@ -11,6 +11,34 @@ There are two indexes constructed that extend SpatialIndexInterface. -
 * RectangleSpatialIndex 
 	* Uses MX-CIF Quadtree to index data from the Rectangle table.
 
+##Notes:
+
+###Rectangles Intersect Logic
+
+* According to the present scenario, if 2 rectangles touch each other then we should return it as part of the search operation. 
+	* But in this case we will have to check all the rectangles that touch a given rectangle. This operation consumes a lot of time as in some cases we may have to check all the rectangles.
+	* We are still working on efficiently solving this problem and in the process we may have to have multiple discussions with the class and the professor.
+
+* As of now our spatial indexing for rectangle returns only those rectangles if it is completely inside the given rectangle.
+	* Our implementation of spatial indexing for rectangles work for majority of the test cases, however output of few test cases are not as expected. 
+	* We are working on these test cases and we will be pushing the changes shortly.
+
+###Images for reference:
+
+Figure 1: Bounding Box Structure 
+![Bounding Box Structure](https://github.com/nakulchawla09/advances-quadtree/blob/master/new/advdbSpatialTest/Test/Images/BoundingBoxStructure.png)
+
+Figure 2: Structure of Quadtree Node
+![Structure of Quadtree Node](https://github.com/nakulchawla09/advances-quadtree/blob/master/new/advdbSpatialTest/Test/Images/StructureOfQuadtreeNode.png)
+
+Figure 3: Points Visualization in Quadtree
+![Points Visualization in Quadtree](https://github.com/nakulchawla09/advances-quadtree/blob/master/new/advdbSpatialTest/Test/Images/TestCase1PointsVisualization.png)
+
+Figure 4: Rectangles Visualization in Quadtree
+![Rectangles Visualization in Quadtree](https://github.com/nakulchawla09/advances-quadtree/blob/master/new/advdbSpatialTest/Test/Images/TestCaseRectangulesVisualization.png)
+
+##Function Defenition
+
 PointSpatialIndex contains the following functions:
 	
 	PointCollection search(Rectangle bounds)
@@ -81,19 +109,6 @@ RectangleSpatialIndex contains the following functions:
 	Deletes index structure for Rectangle Spatial data
 		Returns bool - success status of the delete operation
 
-Images for reference:
-
-Figure 1: Bounding Box Structure 
-![Bounding Box Structure](https://github.com/nakulchawla09/advances-quadtree/blob/master/new/advdbSpatialTest/Test/Images/BoundingBoxStructure.png)
-
-Figure 2: Structure of Quadtree Node
-![Structure of Quadtree Node](https://github.com/nakulchawla09/advances-quadtree/blob/master/new/advdbSpatialTest/Test/Images/StructureOfQuadtreeNode.png)
-
-Figure 3: Points Visualization in Quadtree
-![Points Visualization in Quadtree](https://github.com/nakulchawla09/advances-quadtree/blob/master/new/advdbSpatialTest/Test/Images/TestCase1PointsVisualization.png)
-
-Figure 4: Rectangles Visualization in Quadtree
-![Rectangles Visualization in Quadtree](https://github.com/nakulchawla09/advances-quadtree/blob/master/new/advdbSpatialTest/Test/Images/TestCaseRectangulesVisualization.png)
 
 ========================================================================================================================
 
