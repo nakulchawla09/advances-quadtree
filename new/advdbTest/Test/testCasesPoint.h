@@ -5,8 +5,6 @@
 #include "../QuadTreeLib.h"
 #include "../QPoint.h"
 #include "../QBoundingBox.h"
-#include "../QuadNode.h"
-#include "../QuadTree.h"
 #include "../prQuadNode.h"
 #include "../prQuadTree.h"
 #include "../mxcifQuadNode.h"
@@ -204,67 +202,6 @@ void prQuadTreeTestCase3()
      * CONCLUSION: Works fine
      */
 }
-
-//testcase 3:
-vector<QPoint*> pointsTestCase3(){
-    vector<QPoint*> vQPoint;
-    vQPoint.push_back(new QPoint(100,100,5));
-    vQPoint.push_back(new QPoint(150,150,6));
-    vQPoint.push_back(new QPoint(175,175,7));
-    vQPoint.push_back(new QPoint(187.5,187.5,8));
-    vQPoint.push_back(new QPoint(193.75,193.75,9));
-    return vQPoint;
-
-}
-
-void prQuadTreeTestCase3()
-{
-    cout<<"\n\nprQuadTree 3"<<endl;
-    prQuadTree *prQT = new prQuadTree(0,0,400,400);
-    vector<QPoint*> testQPoints=pointsTestCase3();
-    for(int i=0;i<testQPoints.size();i++) {
-        prQT->insert(testQPoints[i]);
-    }
-    prQT->print();
-    cout<<"\n\n\n\n\n"<<endl;
-    cout<<"\n\nprQuadTree 3 - Query Range 1"<<endl;
-    printprQuadTreeRange(prQT,0,0,400,400);
-
-    /**
-     * CONCLUSION: Works fine
-     */
-}
-
-//testcase 4:
-vector<QPoint*> pointsTestCase4(){
-    vector<QPoint*> vQPoint;
-    vQPoint.push_back(new QPoint(100,100,5));
-    vQPoint.push_back(new QPoint(150,150,6));
-    vQPoint.push_back(new QPoint(175,175,7));
-    vQPoint.push_back(new QPoint(187.5,187.5,8));
-    vQPoint.push_back(new QPoint(193.75,193.75,9));
-    return vQPoint;
-
-}
-
-void prQuadTreeTestCase4()
-{
-    cout<<"\n\nprQuadTree 4"<<endl;
-    prQuadTree *prQT = new prQuadTree(50,50,50,50);
-    vector<QPoint*> testQPoints=pointsTestCase3();
-    for(int i=0;i<testQPoints.size();i++) {
-        prQT->insert(testQPoints[i]);
-    }
-    prQT->print();
-    cout<<"\n\n\n\n\n"<<endl;
-    cout<<"\n\nprQuadTree 4 - Query Range 1"<<endl;
-    printprQuadTreeRange(prQT,0,0,400,400);
-
-    /**
-     * CONCLUSION: Works fine
-     */
-}
-
 
 
 #endif //ADVDBTEST_TESTCASESPOINT_H
