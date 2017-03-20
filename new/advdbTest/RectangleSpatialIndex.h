@@ -37,7 +37,10 @@ public:
     vector<Rectangle> searchRectangle(Rectangle bounds){
         vector<Rectangle>result;
         float *queryBounds = computeBounds(&bounds);
-        mxCifTree->queryRange(queryBounds[0],queryBounds[1],queryBounds[2],queryBounds[3]);
+        vector<QBoundingBox> iBoxes = mxCifTree->queryRange(queryBounds[0],queryBounds[1],queryBounds[2],queryBounds[3]);
+        for(QBoundingBox box : iBoxes) {
+            result.push_back(getRaectangleByUUID("Rectangle",box.getId()));
+        }
         return result;
     }
     void createIndex(PointCollection, float, float){
@@ -48,7 +51,7 @@ public:
         Rectangle *rect;
         while((rect = rectangles.getNext())!= NULL){
             float *bounds = computeBounds(rect);
-            mxCifTree->insert(bounds[0],bounds[1],bounds[2],bounds[3]);
+            mxCifTree->insert(bounds[0],bounds[1],bounds[2],bounds[3],rect->getId());
         }
     }
     bool update(PointCollection,float, float){
