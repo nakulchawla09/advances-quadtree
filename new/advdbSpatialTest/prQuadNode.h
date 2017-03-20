@@ -148,6 +148,19 @@ public:
          this->prqnSE->queryRange(range,pointsInRange);
     }
 
+    void deleteNode()
+    {
+        if( this == NULL )return;
+
+        if(this->prqnNW != NULL)this->prqnNW->deleteNode();
+        if(this->prqnNE != NULL)this->prqnNE->deleteNode();
+        if(this->prqnSW != NULL)this->prqnSW->deleteNode();
+        if(this->prqnSE != NULL)this->prqnSE->deleteNode();
+
+        if( this != NULL) delete this;
+
+    }
+
     void pointsPrint()
     {
         cout<<endl;
