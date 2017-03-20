@@ -5,17 +5,17 @@ using namespace std;
 class Rectangle {
     float x1, y1, x2, y2;
     int id;
-  public:
+public:
     Rectangle(float, float, float, float);
     int getId();
     float* getCoordinates();
-    Rectangle getEnvelope();    
+    Rectangle getEnvelope();
 };
 
 class Point {
     float x, y;
     int id;
-  public:
+public:
     Point(float, float);
     int getId();
     float* getCoordinates();
@@ -25,7 +25,7 @@ class Point {
 class PointPoint {
     float x1, y1, x2, y2;
     int id;
-  public:
+public:
     PointPoint(float, float, float, float);
     int getId();
     float* getCoordinates();
@@ -35,7 +35,7 @@ class PointPoint {
 class PointRectangle {
     float x1, y1, x2, y2, x3, y3;
     int id;
-  public:
+public:
     PointRectangle(float, float, float, float, float, float);
     int getId();
     float* getCoordinates();
@@ -47,7 +47,7 @@ class PointRectangle {
 class RectangleRectangle {
     float x1, y1, x2, y2, x3, y3, x4, y4;
     int id;
-  public:
+public:
     RectangleRectangle(float, float, float, float, float, float, float, float);
     int getId();
     float* getCoordinates();
@@ -55,11 +55,12 @@ class RectangleRectangle {
 };
 
 class PointCollection {
-    Point* points;    
-    string name, databaseName; 
+    Point* points;
+    string name, databaseName;
     int collectionStructure;
-  public:
+public:
     PointCollection(string, string, int, Point*);
+    PointCollection(int, Point*);
     Point getById(int id);
     Point* getNext(int n=1);
     int insert(Point point);
@@ -67,11 +68,12 @@ class PointCollection {
 };
 
 class RectangleCollection {
-    Rectangle* rectangles;    
-    string name, databaseName; 
+    Rectangle* rectangles;
+    string name, databaseName;
     int collectionStructure;
-  public:
+public:
     RectangleCollection(string, string, int, Rectangle*);
+    RectangleCollection(int, Rectangle*);
     Rectangle getById(int id);
     Rectangle* getNext(int n=1);
     int insert(Rectangle rectangle);
@@ -79,31 +81,34 @@ class RectangleCollection {
 };
 
 class PointPointCollection {
-    PointPoint* pointPoints;    
-    string name, databaseName; 
+    PointPoint* pointPoints;
+    string name, databaseName;
     int collectionStructure;
-  public:
+public:
     PointPointCollection(string, string, int, PointPoint*);
+    PointPointCollection(int, PointPoint*);
     PointPoint getById(int id);
     PointPoint* getNext(int n=1);
 };
 
 class PointRectangleCollection {
-    PointRectangle* pointRectangles;    
-    string name, databaseName; 
+    PointRectangle* pointRectangles;
+    string name, databaseName;
     int collectionStructure;
-  public:
+public:
     PointRectangleCollection(string, string, int, PointRectangle*);
+    PointRectangleCollection(int, PointRectangle*);
     PointRectangle getById(int id);
     PointRectangle* getNext(int n=1);
 };
 
 class RectangleRectangleCollection {
-    RectangleRectangle* rectangleRectangles;    
-    string name, databaseName; 
+    RectangleRectangle* rectangleRectangles;
+    string name, databaseName;
     int collectionStructure;
-  public:
+public:
     RectangleRectangleCollection(string, string, int, RectangleRectangle*);
+    RectangleRectangleCollection(int, RectangleRectangle*);
     RectangleRectangle getById(int id);
     RectangleRectangle* getNext(int n=1);
 };
