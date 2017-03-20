@@ -1,7 +1,6 @@
 # Spatial Indexing
 
 ## PR Quad Tree and MX-CIF Quad Tree
-===============================
 
 You can find usage details of interfaces available for Spatial Data Indexing in this document.
 There are two indexes constructed that extend SpatialIndexInterface. - 
