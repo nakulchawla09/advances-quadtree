@@ -80,11 +80,9 @@
       </Unit>
       <Unit filename="/home/sahil/Desktop/ADBNakul/new/advdbTest/QPoint.h">
       </Unit>
-      <Unit filename="/home/sahil/Desktop/ADBNakul/new/advdbTest/QuadNode.h">
-      </Unit>
-      <Unit filename="/home/sahil/Desktop/ADBNakul/new/advdbTest/QuadTree.h">
-      </Unit>
       <Unit filename="/home/sahil/Desktop/ADBNakul/new/advdbTest/QuadTreeLib.h">
+      </Unit>
+      <Unit filename="/home/sahil/Desktop/ADBNakul/new/advdbTest/Test/testCases.h">
       </Unit>
       <Unit filename="/home/sahil/Desktop/ADBNakul/new/advdbTest/mxcifQuadNode.h">
       </Unit>
@@ -93,8 +91,6 @@
       <Unit filename="/home/sahil/Desktop/ADBNakul/new/advdbTest/prQuadNode.h">
       </Unit>
       <Unit filename="/home/sahil/Desktop/ADBNakul/new/advdbTest/prQuadTree.h">
-      </Unit>
-      <Unit filename="/home/sahil/Desktop/ADBNakul/new/advdbTest/testCases.h">
       </Unit>
       <Unit filename="/home/sahil/Desktop/ADBNakul/new/advdbTest/CMakeLists.txt">
           <Option virtualFolder="CMake Files\" />
