@@ -45,7 +45,16 @@ public:
 
     }
 
-    QBoundingBox(QPoint *downLeft, float width, float height):QPoint((*downLeft).getX(),(*downLeft).getY(),qbbID)
+    QBoundingBox(int originX, int originY, float width, float height,int id):QPoint(originX,originY,id)
+    {
+        this->setHeight(height);
+        this->setWidth(width);
+        this->setMin(originX,originY);
+        this->setMax(originX + width,originY + height);
+
+    }
+
+    QBoundingBox(QPoint *downLeft, float width, float height):QPoint((*downLeft).getX(),(*downLeft).getY(),(*downLeft).getId())
     {
         this->setHeight(height);
         this->setWidth(width);

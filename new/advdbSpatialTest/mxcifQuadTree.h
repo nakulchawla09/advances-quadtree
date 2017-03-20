@@ -42,17 +42,19 @@ public:
 
 
     bool insert(float x, float y, float width, float height) {
-        //x = x - width/2;
-        //y = y - height/2;
-        QPoint *xyPoint = new QPoint(x,y);
-        QBoundingBox *QBB = new QBoundingBox(xyPoint,width,height);
+        QBoundingBox *QBB = new QBoundingBox(x, y, width, height);
+        return (*root).insert(QBB);
+    }
+
+    bool insert(float x, float y, float width, float height,int id) {
+        QBoundingBox *QBB = new QBoundingBox(x, y, width, height, id);
         return (*root).insert(QBB);
     }
 
     bool insert(float width, float height)
     {
-        float x = 0 - width/2;
-        float y = 0 - height/2;
+        float x = 0;
+        float y = 0;
         QPoint *xyPoint = new QPoint(x,y);
         QBoundingBox *QBB = new QBoundingBox(xyPoint,width,height);
         return (*root).insert(QBB);
@@ -60,7 +62,6 @@ public:
 
     bool insert(QBoundingBox *QBB)
     {
-
         return (*root).insert(QBB);
     }
 
