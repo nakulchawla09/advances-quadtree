@@ -203,5 +203,35 @@ void prQuadTreeTestCase3()
      */
 }
 
+//testcase 4:
+vector<QPoint*> pointsTestCase4(){
+    vector<QPoint*> vQPoint;
+    vQPoint.push_back(new QPoint(55,55,5));
+    vQPoint.push_back(new QPoint(60,60,6));
+    vQPoint.push_back(new QPoint(65,65,7));
+    vQPoint.push_back(new QPoint(70,70,8));
+    vQPoint.push_back(new QPoint(50,60,9)); //on border
+    return vQPoint;
+
+}
+
+void prQuadTreeTestCase4()
+{
+    cout<<"\n\nprQuadTree 4"<<endl;
+    prQuadTree *prQT = new prQuadTree(50,50,100,100);
+    vector<QPoint*> testQPoints = pointsTestCase4();
+    for(int i=0;i<testQPoints.size();i++) {
+        prQT->insert(testQPoints[i]);
+    }
+
+    prQT->print();
+    cout<<"\n\n\n\n\n"<<endl;
+    cout<<"\n\nprQuadTree 4 - Query Range 1"<<endl;
+    printprQuadTreeRange(prQT,0,0,100,100);
+
+    /**
+     * CONCLUSION: Works fine
+     */
+}
 
 #endif //ADVDBTEST_TESTCASESPOINT_H

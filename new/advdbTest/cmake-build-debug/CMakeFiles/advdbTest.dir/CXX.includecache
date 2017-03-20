@@ -57,10 +57,6 @@ testCasesRectangle.h
 /home/sahil/Desktop/ADBNakul/new/advdbTest/Test/../QPoint.h
 ../QBoundingBox.h
 /home/sahil/Desktop/ADBNakul/new/advdbTest/Test/../QBoundingBox.h
-../QuadNode.h
-/home/sahil/Desktop/ADBNakul/new/advdbTest/Test/../QuadNode.h
-../QuadTree.h
-/home/sahil/Desktop/ADBNakul/new/advdbTest/Test/../QuadTree.h
 ../prQuadNode.h
 /home/sahil/Desktop/ADBNakul/new/advdbTest/Test/../prQuadNode.h
 ../prQuadTree.h
@@ -77,10 +73,6 @@ testCasesRectangle.h
 /home/sahil/Desktop/ADBNakul/new/advdbTest/Test/../QPoint.h
 ../QBoundingBox.h
 /home/sahil/Desktop/ADBNakul/new/advdbTest/Test/../QBoundingBox.h
-../QuadNode.h
-/home/sahil/Desktop/ADBNakul/new/advdbTest/Test/../QuadNode.h
-../QuadTree.h
-/home/sahil/Desktop/ADBNakul/new/advdbTest/Test/../QuadTree.h
 ../prQuadNode.h
 /home/sahil/Desktop/ADBNakul/new/advdbTest/Test/../prQuadNode.h
 ../prQuadTree.h
@@ -91,24 +83,6 @@ testCasesRectangle.h
 /home/sahil/Desktop/ADBNakul/new/advdbTest/Test/../mxcifQuadTree.h
 
 /home/sahil/Desktop/ADBNakul/new/advdbTest/Test/testCasesRectangle.h
-../QuadTreeLib.h
-/home/sahil/Desktop/ADBNakul/new/advdbTest/Test/../QuadTreeLib.h
-../QPoint.h
-/home/sahil/Desktop/ADBNakul/new/advdbTest/Test/../QPoint.h
-../QBoundingBox.h
-/home/sahil/Desktop/ADBNakul/new/advdbTest/Test/../QBoundingBox.h
-../QuadNode.h
-/home/sahil/Desktop/ADBNakul/new/advdbTest/Test/../QuadNode.h
-../QuadTree.h
-/home/sahil/Desktop/ADBNakul/new/advdbTest/Test/../QuadTree.h
-../prQuadNode.h
-/home/sahil/Desktop/ADBNakul/new/advdbTest/Test/../prQuadNode.h
-../prQuadTree.h
-/home/sahil/Desktop/ADBNakul/new/advdbTest/Test/../prQuadTree.h
-../mxcifQuadNode.h
-/home/sahil/Desktop/ADBNakul/new/advdbTest/Test/../mxcifQuadNode.h
-../mxcifQuadTree.h
-/home/sahil/Desktop/ADBNakul/new/advdbTest/Test/../mxcifQuadTree.h
 QuadTreeLib.h
 /home/sahil/Desktop/ADBNakul/new/advdbTest/Test/QuadTreeLib.h
 QPoint.h

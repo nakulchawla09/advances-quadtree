@@ -22,6 +22,7 @@ void testprQuadTree()
     prQuadTreeTestCase1();
     prQuadTreeTestCase2();
     prQuadTreeTestCase3();
+    prQuadTreeTestCase4();
 }
 
 
