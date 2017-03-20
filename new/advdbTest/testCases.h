@@ -8,8 +8,6 @@
 #include "QuadTreeLib.h"
 #include "QPoint.h"
 #include "QBoundingBox.h"
-#include "QuadNode.h"
-#include "QuadTree.h"
 #include "prQuadNode.h"
 #include "prQuadTree.h"
 #include "mxcifQuadNode.h"

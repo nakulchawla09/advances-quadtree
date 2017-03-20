@@ -6,9 +6,9 @@
 #define ADVDBTEST_PRQUADNODE_H
 
 #include "QuadTreeLib.h"
-#include "QuadNode.h"
+#include "QBoundingBox.h"
 
-class prQuadNode : public QuadNode
+class prQuadNode
 {
 protected:
     int leafCapacity;
@@ -18,6 +18,7 @@ protected:
 public:
 
     int height;
+    QBoundingBox qbb;
     vector<QPoint> points;
     prQuadNode *prqnNW;
     prQuadNode *prqnNE;
@@ -52,7 +53,8 @@ public:
 
     }
 
-    bool isLeaf() {
+    bool isLeaf()
+    {
         return (prqnNW == NULL && prqnNE == NULL && prqnSW == NULL && prqnSE == NULL);
     }
 
@@ -75,10 +77,11 @@ public:
         }
 
         return insertIntoChildren(point);
-}
+    }
 
 
-    bool insertIntoChildren(QPoint *point) {
+    bool insertIntoChildren(QPoint *point)
+    {
 
         if (prqnNW->insert(point)) return true;
         if (prqnNE->insert(point)) return true;
@@ -86,7 +89,7 @@ public:
         if (prqnSE->insert(point)) return true;
 
     return false;
-}
+    }
 
 
     void subdivide()
@@ -124,11 +127,11 @@ public:
     }
 
      void queryRange(QBoundingBox range, vector<QPoint> &pointsInRange) {
-        // Automatically abort if the range does not collide with this quad
+
         if (!(*this).qbb.intersectsBox(range))
             return;
 
-        // If leaf, check objects at this level
+
         if (isLeaf()) {
             for (int i=0; i<points.size(); i++)
             {
@@ -138,7 +141,7 @@ public:
             return;
         }
 
-        // Otherwise, add the points from the children
+
          this->prqnNW->queryRange(range,pointsInRange);
          this->prqnNE->queryRange(range,pointsInRange);
          this->prqnSW->queryRange(range,pointsInRange);
