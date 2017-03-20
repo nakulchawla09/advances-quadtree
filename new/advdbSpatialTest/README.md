@@ -1,9 +1,15 @@
-												README
-========================================================================================================================
-You can find usage details of interfaces available for Spatial Data Indexing in this document.There are two indexes 
-constructed for this purpose - PointSpatialIndex and RectangleSpatialIndex that extend SpatialIndexInterface. 
-PointSpatialIndexuses Point Region Quadtree to index data in Point table. RectangleSpatialIndex uses MX-CIF Quadtree to
-index data in Rectangle table.
+# Spatial Indexing
+
+## PR Quad Tree and MX-CIF Quad Tree
+===============================
+
+You can find usage details of interfaces available for Spatial Data Indexing in this document.
+There are two indexes constructed that extend SpatialIndexInterface. - 
+
+* PointSpatialIndex
+	* Uses Point Region Quadtree to index data from the Point table
+* RectangleSpatialIndex 
+	* Uses MX-CIF Quadtree to index data from the Rectangle table.
 
 PointSpatialIndex contains the following functions:
 	
