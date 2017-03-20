@@ -5,23 +5,21 @@
 #ifndef ADVDBTEST_TESTCASES_H
 #define ADVDBTEST_TESTCASES_H
 
-#include "testCasesPoint.h"
-#include "testCasesRectangle.h"
-#include "../QPoint.h"
-#include "../QBoundingBox.h"
-#include "../prQuadNode.h"
-#include "../prQuadTree.h"
-#include "../mxcifQuadNode.h"
-#include "../mxcifQuadTree.h"
+#include "testCasesQPoint.h"
+#include "testCasesQBoundingBox.h"
+#include "testCasesprQuadTree.h"
+#include "testCasesmxcifQuadTree.h"
 
 using namespace std;
 
-
-void testprQuadTree()
+void executeSpatialIndexingTestCases()
 {
-    prQuadTreeTestCase1();
-    prQuadTreeTestCase2();
-    prQuadTreeTestCase3();
+    cout<<"\n\n\nSpatial Indexing Testing - Started"<<endl;
+//    testQPoints();
+//    testQBoundingBox();
+//    testprQuadNode();
+//    testprQuadTree();
+    cout<<"\n\n\nSpatial Indexing Testing - Ended"<<endl;
 }
 
 

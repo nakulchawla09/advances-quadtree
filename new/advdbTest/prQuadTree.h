@@ -63,7 +63,7 @@ public:
         cout<<prefix<< "Root Node | ";
         if(root!=NULL)
         {
-            print(root,"*",true);
+            print(root,"* ",true);
         }
 
 
