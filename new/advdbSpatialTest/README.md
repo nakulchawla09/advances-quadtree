@@ -10,9 +10,9 @@ There are two indexes constructed that extend SpatialIndexInterface. -
 * RectangleSpatialIndex 
 	* Uses MX-CIF Quadtree to index data from the Rectangle table.
 
-##Notes:
+## Notes:
 
-###Rectangles Intersect Logic
+### Rectangles Intersect Logic
 
 * According to the present scenario, if 2 rectangles touch each other then we should return it as part of the search operation. 
 	* But in this case we will have to check all the rectangles that touch a given rectangle. This operation consumes a lot of time as in some cases we may have to check all the rectangles.
@@ -22,7 +22,7 @@ There are two indexes constructed that extend SpatialIndexInterface. -
 	* Our implementation of spatial indexing for rectangles work for majority of the test cases, however output of few test cases are not as expected. 
 	* We are working on these test cases and we will be pushing the changes shortly.
 
-###Images for reference:
+### Images for reference:
 
 Figure 1: Bounding Box Structure 
 ![Bounding Box Structure](https://github.com/nakulchawla09/advances-quadtree/blob/master/new/advdbSpatialTest/Test/Images/BoundingBoxStructure.png)
@@ -36,7 +36,7 @@ Figure 3: Points Visualization in Quadtree
 Figure 4: Rectangles Visualization in Quadtree
 ![Rectangles Visualization in Quadtree](https://github.com/nakulchawla09/advances-quadtree/blob/master/new/advdbSpatialTest/Test/Images/TestCaseRectangulesVisualization.png)
 
-##Function Defenition
+## Function Defenition
 
 PointSpatialIndex contains the following functions:
 	
