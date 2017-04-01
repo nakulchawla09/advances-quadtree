@@ -14,6 +14,7 @@ class SpatialIndexImpl: public  SpatialIndexInterface {
 private:
     PointSpatialIndex *pointIndex;
     RectangleSpatialIndex *rectangleIndex;
+    bool isPointIndex = false;
 public:
     PointCollection searchPoint(Rectangle rectangle)  {
         if(pointIndex != NULL) {
@@ -32,6 +33,7 @@ public:
     void createIndex(PointCollection collection)  {
         pointIndex = new PointSpatialIndex();
         pointIndex->createIndex(collection);
+        isPointIndex = true;
     }
 
     void createIndex(RectangleCollection collection)  {
@@ -55,11 +57,11 @@ public:
 
     bool deleteIndex()  {
         bool status = false;
-        if(pointIndex != NULL) {
+        if(isPointIndex && pointIndex != NULL) {
             status = pointIndex->deleteIndex();
             delete pointIndex;
-        }
-        if(rectangleIndex != NULL) {
+            isPointIndex = false;
+        }else if(rectangleIndex != NULL) {
             status = rectangleIndex->deleteIndex();
             delete rectangleIndex;
         }
