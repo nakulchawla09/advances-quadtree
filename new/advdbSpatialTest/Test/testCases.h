@@ -20,7 +20,8 @@ void executeSpatialIndexingTestCases()
 //    testQBoundingBox();
 //    testprQuadNode();
 //    testprQuadTree();
-    testmxcifQuadNode();
+//    testmxcifQuadNode();
+    testmxcifQuadTree();
     cout<<"\n\n\nSpatial Indexing Testing - Ended"<<endl;
 
 }

@@ -18,6 +18,14 @@ void printQPointVectors(vector<QPoint> qPoints)
     }
 }
 
+void printQBoundingBoxVectors(vector<QBoundingBox> qbbs)
+{
+    for(int i=0;i< qbbs.size();i++) {
+        qbbs[i].print();
+    }
+}
+
+
 
 
 #endif //ADVDBTEST_UTILITYFUNCTIONS_H
