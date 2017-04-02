@@ -29,8 +29,8 @@ public:
     mxcifQuadNode() {}
     mxcifQuadNode(QBoundingBox QBB)
     {
-        minHeight = 0;
-        minWidth = 0;
+        minHeight = 1;
+        minWidth = 1;
         (*this).qbb = QBB;
         (*this).mxqnNW = NULL;
         (*this).mxqnNE = NULL;
@@ -40,8 +40,8 @@ public:
     }
     mxcifQuadNode(int originX, int originY, float width, float height)
     {
-        minHeight = 0;
-        minWidth = 0;
+        minHeight = 1;
+        minWidth = 1;
         QBoundingBox *QBB = new QBoundingBox(originX, originY, width, height);
         (*this).qbb = *QBB;
         (*this).mxqnNW = NULL;
@@ -62,9 +62,9 @@ public:
         // Ignore objects which do not belong in this quad tree
         if (!qbb.intersectsBox(*box))
             return false; // object cannot be added
-//        TODO - Spatail Indexing Team - Rectangles contains logic,check if a bounding box is contained within given rectangles vector of mxcifquadnode
-//        if (rectangles.contains(box))
-//            return true; // already exists
+//        TODO - Spatial Indexing Team - Rectangles contains logic,check if a bounding box is contained within given rectangles vector of mxcifquadnode
+        if(box->isIn(rectangles))
+            return true;
 
         // Subdivide then add the objects to whichever node will accept it
         if (isLeaf())

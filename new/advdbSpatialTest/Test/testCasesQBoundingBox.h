@@ -35,6 +35,19 @@ void qBoundingBoxTestCase2()
 }
 
 
+void qBoundingBoxTestCase3()
+{
+    cout<<"\nQBoundingBox 3"<<endl;
+    float minX = 50;
+    float minY = 50;
+    float maxX = 100;
+    float maxY = 100;
+    QBoundingBox *tqbb3 = new QBoundingBox(minX,minY,maxX,maxY,24);
+    tqbb3->print();
+
+}
+
+
 
 
 void testCreateQBoundingBox()
@@ -43,6 +56,7 @@ void testCreateQBoundingBox()
 
     qBoundingBoxTestCase1();
     qBoundingBoxTestCase2();
+    qBoundingBoxTestCase3();
 
     cout<<"\n\n Create QBoundingBox Testing - Started"<<endl;
 
@@ -63,14 +77,49 @@ vector<QPoint*> pointsTestCaseQBoundingBox1(){
 
 }
 
+void pointsGetQBoundingBoxTestCase1()
+{
+    cout<<"\nPoints Test Case 1"<<endl;
+    vector<QPoint*> testQPoints = pointsTestCaseQBoundingBox1();
+    QBoundingBox *QBB = QBoundingBox::getQBoundingBoxCooridinates(testQPoints);
+    QBB->print();
+
+}
+
+vector<QBoundingBox*> rectanglesTestCaseQBoundingBox1(){
+
+    vector<QBoundingBox*> vQBoundingBox;
+
+    vQBoundingBox.push_back(QBoundingBox::createRectangle(3,6,8,36));
+    vQBoundingBox.push_back(QBoundingBox::createRectangle(25,34,34,38));
+    vQBoundingBox.push_back(QBoundingBox::createRectangle(33,21,37,36));
+    vQBoundingBox.push_back(QBoundingBox::createRectangle(21,23,38,27));
+    vQBoundingBox.push_back(QBoundingBox::createRectangle(6,3,26,8));
+    vQBoundingBox.push_back(QBoundingBox::createRectangle(31,15,35,19));
+    vQBoundingBox.push_back(QBoundingBox::createRectangle(23,25,26,36));
+    vQBoundingBox.push_back(QBoundingBox::createRectangle(27,14.5,33.5,20.5));
+    vQBoundingBox.push_back(QBoundingBox::createRectangle(16,3.5,22,7.5));
+
+
+    return vQBoundingBox;
+
+}
+
+void rectanglesGetQBoundingBoxTestCase1()
+{
+    cout<<"\nRectangles Test Case 1"<<endl;
+    vector<QBoundingBox*> testQBoundingBoxes = rectanglesTestCaseQBoundingBox1();
+    QBoundingBox *QBB = QBoundingBox::getQBoundingBoxCooridinates(testQBoundingBoxes);
+    QBB->print();
+
+}
+
 void testGetBoundingBoxCoordinates()
 {
     cout<<"\n\n Get BoundingBox Co-ordinates Points - Testing - Started"<<endl;
 
-    cout<<"\nTest Case 1"<<endl;
-    vector<QPoint*> testQPoints = pointsTestCaseQBoundingBox1();
-    QBoundingBox *QBB = QBoundingBox::getQBoundingBoxCooridinates(testQPoints);
-    QBB->print();
+    pointsGetQBoundingBoxTestCase1();
+    rectanglesGetQBoundingBoxTestCase1();
 
     cout<<"\n\n Get BoundingBox Co-ordinates Points - Testing - Ended"<<endl;
 }
@@ -79,7 +128,7 @@ void testQBoundingBox()
 {
     cout<<"\n\n QBoundingBox Testing - Started"<<endl;
 
-//    testCreateQBoundingBox();
+    testCreateQBoundingBox();
     testGetBoundingBoxCoordinates();
 
 

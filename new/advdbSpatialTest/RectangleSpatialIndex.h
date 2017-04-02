@@ -29,6 +29,13 @@ private:
         bounds[0]=minx; bounds[1]=miny; bounds[2]=width; bounds[3]=height;
         return bounds;
     }
+    QBoundingBox* convertRectangle(Rectangle *r) {
+        float minX = r->getCoordinates()[0];
+        float minY = r->getCoordinates()[1];
+        float maxX = r->getCoordinates()[2];
+        float maxY = r->getCoordinates()[3];
+        return new QBoundingBox(minX,minY,maxX,maxY,r->getId());
+    }
 public:
     RectangleSpatialIndex() {}
     PointCollection search(Rectangle){
@@ -58,6 +65,7 @@ public:
         while((rect = rectangles.getNext())!= NULL){
             float *bounds = computeBounds(rect);
             mxCifTree->insert(bounds[0],bounds[1],bounds[2],bounds[3],rect->getId());
+//            mxCifTree->insert(convertRectangle(rect));
         }
     }
     bool update(PointCollection){

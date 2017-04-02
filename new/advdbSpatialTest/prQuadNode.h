@@ -31,7 +31,7 @@ public:
     {
         height = 0;
         leafCapacity = 4;
-        maxHeight = 20;
+        maxHeight = 25;
         (*this).qbb = QBB;
         (*this).prqnNW = NULL;
         (*this).prqnNE = NULL;
@@ -43,7 +43,7 @@ public:
     {
         height = 0;
         leafCapacity = 4;
-        maxHeight = 20;
+        maxHeight = 25;
         QBoundingBox *QBB = new QBoundingBox(originX, originY, width, height);
         (*this).qbb = *QBB;
         (*this).prqnNW = NULL;
