@@ -23,7 +23,7 @@ private:
         bool xResult = (x1 - x2) > ((fabs(x1) < fabs(x2) ? fabs(x2) : fabs(x1)) * numeric_limits<double>::epsilon());
         float minx = xResult ? x2 : x1;
         bool yResult = (y1 - y2) > ((fabs(y1) < fabs(y2) ? fabs(y2) : fabs(y1)) * numeric_limits<double>::epsilon());
-        float miny = xResult ? y2 : y1;
+        float miny = yResult ? y2 : y1;
         float width = fabs(x2-x1);
         float height = fabs(y2-y1);
         bounds[0]=minx; bounds[1]=miny; bounds[2]=width; bounds[3]=height;
