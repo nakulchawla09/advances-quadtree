@@ -68,9 +68,9 @@ void mxcifQuadTreeTestCase1()
         mxcifQT->insert(testQBoundingBoxes[i]);
     }
     mxcifQT->print();
-//    cout<<"\n\n\n\n\n"<<endl;
-//    cout<<"\n\nmxcifQuadTree 1 - Query Range 1"<<endl;
-//    printprQuadTreeRange(mxcifQT,0,0,30,30);
+    cout<<"\n\n\n\n\n"<<endl;
+    cout<<"\n\nmxcifQuadTree 1 - Query Range 1"<<endl;
+    printmxcifQuadTreeRange(mxcifQT,0,0,10,10);
 
     /**
      * CONCLUSION: Works fine
