@@ -319,10 +319,11 @@ public:
     void print(string prefix = "", bool emptyLine = false)
     {
         if(emptyLine)cout<<endl;
-        cout<<prefix<< "QBoundingBox : QPoint | X : "<<this->getX()<<" | Y : "<<this->getY()<<" | ID : "<<this->getId()<<endl;
-        cout<<prefix<< "QBoundingBox | Height : "<<this->getHeight()<<" | Width : "<<this->getWidth()<<endl;
+//        cout<<prefix<< "QBoundingBox : QPoint | X : "<<this->getX()<<" | Y : "<<this->getY()<<" | ID : "<<this->getId()<<endl;
+
         cout<<prefix<< "QBoundingBox | minX : "<<this->minX<<" | minY : "<<this->minY<<endl;
         cout<<prefix<< "QBoundingBox | maxX : "<<this->maxX<<" | maxY : "<<this->maxY<<endl;
+        cout<<prefix<< "QBoundingBox | ID :"<<this->getId()<<" | Height : "<<this->getHeight()<<" | Width : "<<this->getWidth()<<endl;
     }
 
 };
