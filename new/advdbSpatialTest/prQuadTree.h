@@ -36,6 +36,10 @@ public:
         root = new prQuadNode( *QBB );
     }
 
+    prQuadTree(QBoundingBox *qbb) {
+        root = new prQuadNode( *qbb );
+    }
+
     prQuadNode* getRoot() {
         return root;
     }

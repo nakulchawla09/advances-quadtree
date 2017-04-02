@@ -62,7 +62,7 @@ public:
         // Ignore objects which do not belong in this quad tree
         if (!qbb.intersectsBox(*box))
             return false; // object cannot be added
-//        TODO - Spatail Indexing Team - Rectangles contains logic,check if a bounding box is contained within given rctangles vector of mxcifquadnode
+//        TODO - Spatail Indexing Team - Rectangles contains logic,check if a bounding box is contained within given rectangles vector of mxcifquadnode
 //        if (rectangles.contains(box))
 //            return true; // already exists
 

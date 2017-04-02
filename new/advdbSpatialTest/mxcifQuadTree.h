@@ -38,6 +38,11 @@ public:
         root = new mxcifQuadNode( *QBB );
     }
 
+    mxcifQuadTree(QBoundingBox *qbb)
+    {
+        root = new mxcifQuadNode( *qbb );
+    }
+
     mxcifQuadNode* getRoot() { return root; }
 
 

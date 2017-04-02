@@ -16,10 +16,10 @@ void executeSpatialIndexingTestCases()
 {
 
     cout<<"\n\n\nSpatial Indexing Testing - Started"<<endl;
-    testQPoints();
+//    testQPoints();
     testQBoundingBox();
-    testprQuadNode();
-    testprQuadTree();
+//    testprQuadNode();
+//    testprQuadTree();
     cout<<"\n\n\nSpatial Indexing Testing - Ended"<<endl;
 
 }

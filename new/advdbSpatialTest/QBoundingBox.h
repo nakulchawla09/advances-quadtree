@@ -140,7 +140,7 @@ public:
         return ((boundingBox.minX >= minX && boundingBox.maxX <= maxX) && ( boundingBox.minY >= minY && boundingBox.maxY <= maxY));
     }
 
-     bool intersectsBox(QBoundingBox boundingBox) {
+    bool intersectsBox(QBoundingBox boundingBox) {
 
         if (insideThis(boundingBox) || boundingBox.insideThis(*this)) return true;
 
@@ -149,6 +149,60 @@ public:
 
         return true;
     }
+
+    static QBoundingBox* getQBoundingBoxCooridinates(vector<QPoint*> qPoints)
+    {
+        if (qPoints.empty()) return NULL;
+        float minX,maxX,minY,maxY,currentX,currentY,finalX,finalY; int i;
+        minX = (*qPoints[0]).getX();
+        minY = (*qPoints[0]).getY();
+        maxX = (*qPoints[0]).getX();
+        maxY = (*qPoints[0]).getY();
+
+        for(i=0;i< qPoints.size();i++){
+            currentX = (*qPoints[i]).getX();
+            currentY = (*qPoints[i]).getY();
+            if(currentX <= minX){
+                minX = currentX;
+            }else if (currentX >= maxX){
+                maxX = currentX;
+            }
+
+            if(currentY <= minY){
+                minY = currentY;
+            }else if(currentY >= maxY){
+                maxY = currentY;
+            }
+            cout<<"\n\n\t";
+            cout<<"Current ||  X :"<<currentX<<", Y :"<<currentY<<endl;
+            cout<<"min ||  X :"<<minX<<", Y :"<<minY<<endl;
+            cout<<"max ||  X :"<<maxX<<", Y :"<<maxY<<endl;
+        }
+
+        cout<<"\n\n\n Loop Ended - Values"<<endl;
+        cout<<"min ||  X :"<<minX<<", Y :"<<minY<<endl;
+        cout<<"max ||  X :"<<maxX<<", Y :"<<maxY<<endl;
+
+        finalX = max(abs(round(minX)),abs(round(maxX)));
+        finalY = max(abs(round(minY)),abs(round(maxY)));
+
+
+        finalX += finalX/2;
+        finalY += finalY/2;
+
+        cout<<"\n\n\n Final - Values"<<endl;
+        cout<<"final ||  X :"<<finalX<<", Y :"<<finalY<<endl;
+
+
+        float finalWidth = finalX*2;
+        float finalHeight = finalY*2;
+        int originX = 0 - (int)finalX;
+        int originY = 0 - (int)finalY;
+
+        return new QBoundingBox(originX,originY,finalWidth,finalHeight);
+
+    }
+
 
     void print(string prefix = "", bool emptyLine = false)
     {

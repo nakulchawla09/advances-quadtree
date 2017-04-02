@@ -8,5 +8,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
+#include <cmath>
 
 #endif //ADVDBTEST_QUADTREELIB_H
