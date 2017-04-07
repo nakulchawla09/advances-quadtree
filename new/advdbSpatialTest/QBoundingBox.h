@@ -52,7 +52,6 @@ public:
         this->setWidth(width);
         this->setMin(originX,originY);
         this->setMax(originX + width,originY + height);
-
     }
 
     QBoundingBox(QPoint *downLeft, float width, float height):QPoint((*downLeft).getX(),(*downLeft).getY(),(*downLeft).getId())

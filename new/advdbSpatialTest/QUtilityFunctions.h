@@ -26,6 +26,4 @@ void printQBoundingBoxVectors(vector<QBoundingBox> qbbs)
 }
 
 
-
-
 #endif //ADVDBTEST_UTILITYFUNCTIONS_H
