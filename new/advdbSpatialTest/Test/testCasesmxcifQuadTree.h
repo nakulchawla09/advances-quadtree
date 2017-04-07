@@ -5,7 +5,7 @@
 #ifndef ADVDBTEST_TESTCASESMXCIFQUADTREE_H
 #define ADVDBTEST_TESTCASESMXCIFQUADTREE_H
 
-#include "../UtilityFunctions.h"
+#include "../QUtilityFunctions.h"
 #include "../mxcifQuadNode.h"
 #include "../mxcifQuadTree.h"
 

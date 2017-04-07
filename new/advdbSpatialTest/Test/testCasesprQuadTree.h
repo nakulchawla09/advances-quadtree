@@ -5,7 +5,7 @@
 #ifndef ADVDBTEST_TESTCASESPRQUADTREE_H_H
 #define ADVDBTEST_TESTCASESPRQUADTREE_H_H
 
-#include "../UtilityFunctions.h"
+#include "../QUtilityFunctions.h"
 #include "../prQuadNode.h"
 #include "../prQuadTree.h"
 
