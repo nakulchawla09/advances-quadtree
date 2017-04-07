@@ -9,13 +9,16 @@
 #include "../QPoint.h"
 #include "../prQuadTree.h"
 #include "../prQuadNode.h"
+#include "../QBoundingBox.h"
 
 using namespace std;
 
-//change the func to return prQuadtree and return * pointing to heap prQuadTree
-
 prQuadTree* bulkLoadPrQuadTree(std::string inputFilePath ){
-    prQuadTree *prQt = new prQuadTree(0,0,200,200);
+
+    vector<QPoint*> pointsToLoad;
+    QBoundingBox* qBb;
+    float height, width;
+    float originX, originY = 0.0;
 
     ifstream fileToLoad (inputFilePath);
     string line;
@@ -23,6 +26,7 @@ prQuadTree* bulkLoadPrQuadTree(std::string inputFilePath ){
     float val = 0.0;
     int i = 0;
     cout<< fileToLoad.is_open()<<endl;
+
 
     if ( fileToLoad.is_open() ) {
         while (getline(fileToLoad, line)) {
@@ -35,19 +39,30 @@ prQuadTree* bulkLoadPrQuadTree(std::string inputFilePath ){
                     ss.ignore();
             }
             temp->set(vect.at(0),vect.at(1),i);
-            prQt->insert(temp);
+            pointsToLoad.push_back( new QPoint(vect.at(0),vect.at(1),i));
+//            prQt->insert(temp);
 
         }
+        qBb = QBoundingBox::getQBoundingBoxCooridinates(pointsToLoad);
+        height = qBb->getHeight();
+        width = qBb->getWidth();
 
         i++;
     }
+
+    prQuadTree* prQt = new prQuadTree(qBb);
+
+    for(int i=0;i<pointsToLoad.size();i++) {
+        prQt->insert(pointsToLoad[i]);
+    }
+
     fileToLoad.close();
 
     return prQt;
 }
 
 
-void testBulkLoadPrQuadTree() {
+prQuadTree* testBulkLoadPrQuadTree() {
 
     cout << "\n\n\n Bulkload point file begin" << endl;
     std:: string fileToLoadPath;
@@ -55,6 +70,8 @@ void testBulkLoadPrQuadTree() {
 
     prQuadTree* temp = bulkLoadPrQuadTree(fileToLoadPath);
     cout<<"\n\n\n bulk load point file end" << endl;
+
+    return temp;
 }
 
 
