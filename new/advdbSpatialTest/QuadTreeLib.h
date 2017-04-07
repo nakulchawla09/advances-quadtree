@@ -10,5 +10,8 @@
 #include <string>
 #include <algorithm>
 #include <cmath>
+#include <sstream>
+#include <fstream>
+#include <cstring>
 
 #endif //ADVDBTEST_QUADTREELIB_H
