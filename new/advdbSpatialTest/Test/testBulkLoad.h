@@ -49,12 +49,13 @@ prQuadTree* bulkLoadPrQuadTree(std::string inputFilePath ){
 
 void testBulkLoadPrQuadTree() {
 
-    cout << "\n\n\n Bulkload point file begin" << endl;
+    cout << "\n\n\n Bulkloading Of Points - Started" << endl;
     std:: string fileToLoadPath;
-    fileToLoadPath = "/Users/princechawla/advances-quadtree/new/advdbSpatialTest/Test/point.csv";
+    fileToLoadPath = "/Users/ravichandran/Documents/Misc/Docs/ASU_Subjects/Spring_17/ADVDB/Project/Code/advances-quadtree/new/advdbSpatialTest/Test/point.csv";
+//    fileToLoadPath = "/Users/princechawla/advances-quadtree/new/advdbSpatialTest/Test/point.csv";
 
     prQuadTree* temp = bulkLoadPrQuadTree(fileToLoadPath);
-    cout<<"\n\n\n bulk load point file end" << endl;
+    cout << "\n\n\n Bulkloading Of Points - Ended" << endl;
 }
 
 
