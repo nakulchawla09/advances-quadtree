@@ -5,18 +5,19 @@
 #ifndef ADVDBTEST_TESTBULKLOAD_H
 #define ADVDBTEST_TESTBULKLOAD_H
 
-#include "../QuadTreeLib.h"
-#include "../QPoint.h"
+#include "../quadTreeLib.h"
+#include "../qPoint.h"
 #include "../prQuadTree.h"
 #include "../prQuadNode.h"
-#include "../QBoundingBox.h"
+#include "../qBoundingBox.h"
+
 
 using namespace std;
 
 prQuadTree* bulkLoadPrQuadTree(std::string inputFilePath ){
 
-    vector<QPoint*> pointsToLoad;
-    QBoundingBox* qBb;
+    vector<qPoint*> pointsToLoad;
+    qBoundingBox* qBb;
     float height, width;
     float originX, originY = 0.0;
 
@@ -31,7 +32,7 @@ prQuadTree* bulkLoadPrQuadTree(std::string inputFilePath ){
     if ( fileToLoad.is_open() ) {
         while (getline(fileToLoad, line)) {
             stringstream ss(line);
-            QPoint* temp = new QPoint();
+            qPoint* temp = new qPoint();
             vector<float> vect;
             while (ss >> val) {
                 vect.push_back(val);
@@ -39,11 +40,11 @@ prQuadTree* bulkLoadPrQuadTree(std::string inputFilePath ){
                     ss.ignore();
             }
             temp->set(vect.at(0),vect.at(1),i);
-            pointsToLoad.push_back( new QPoint(vect.at(0),vect.at(1),i));
+            pointsToLoad.push_back( new qPoint(vect.at(0),vect.at(1),i));
 //            prQt->insert(temp);
 
         }
-        qBb = QBoundingBox::getQBoundingBoxCooridinates(pointsToLoad);
+        qBb = qBoundingBox::getQBoundingBoxCooridinates(pointsToLoad);
         height = qBb->getHeight();
         width = qBb->getWidth();
 

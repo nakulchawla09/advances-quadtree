@@ -13,7 +13,7 @@ using namespace std;
 
 int qpID = -333;
 
-class qPoint {
+class qPoint{
     float x;
     float y;
     int id;
