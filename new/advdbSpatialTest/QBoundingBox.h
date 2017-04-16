@@ -5,13 +5,13 @@
 #ifndef ADVDBTEST_QBOUNDINGBOX_H
 #define ADVDBTEST_QBOUNDINGBOX_H
 
-#include "QuadTreeLib.h"
-#include "QPoint.h"
+#include "quadTreeLib.h"
+#include "qPoint.h"
 
 using namespace std;
 int qbbID = -333;
 
-class QBoundingBox : public QPoint
+class qBoundingBox : public qPoint
 {
 private:
      float height;
@@ -25,11 +25,11 @@ private:
 
 public:
 
-    QBoundingBox():QPoint(0,0,qbbID){}
-    QBoundingBox(int id):QPoint(0,0,id){}
+    qBoundingBox():qPoint(0,0,qbbID){}
+    qBoundingBox(int id):qPoint(0,0,id){}
 
 
-    QBoundingBox(float width, float height):QPoint(0,0,qbbID)
+    qBoundingBox(float width, float height):qPoint(0,0,qbbID)
     {
         this->setHeight(height);
         this->setWidth(width);
@@ -37,7 +37,7 @@ public:
         this->setMax(width,height);
     }
 
-    QBoundingBox(int originX, int originY, float width, float height):QPoint(originX,originY,qbbID)
+    qBoundingBox(int originX, int originY, float width, float height):qPoint(originX,originY,qbbID)
     {
         this->setHeight(height);
         this->setWidth(width);
@@ -46,15 +46,16 @@ public:
 
     }
 
-    QBoundingBox(int originX, int originY, float width, float height,int id):QPoint(originX,originY,id)
+    qBoundingBox(int originX, int originY, float width, float height,int id):qPoint(originX,originY,id)
     {
         this->setHeight(height);
         this->setWidth(width);
         this->setMin(originX,originY);
         this->setMax(originX + width,originY + height);
+
     }
 
-    QBoundingBox(QPoint *downLeft, float width, float height):QPoint((*downLeft).getX(),(*downLeft).getY(),(*downLeft).getId())
+    qBoundingBox(qPoint *downLeft, float width, float height):qPoint((*downLeft).getX(),(*downLeft).getY(),(*downLeft).getId())
     {
         this->setHeight(height);
         this->setWidth(width);
@@ -62,7 +63,7 @@ public:
         this->setMax((*downLeft).getX() + width,(*downLeft).getY() + height);
     }
 
-    QBoundingBox(float minX,float minY,float maxX,float maxY,int id):QPoint(minX,minY,id)
+    qBoundingBox(float minX,float minY,float maxX,float maxY,int id):qPoint(minX,minY,id)
     {
         int curHeight = (int)(maxY - minY);
         int curWidth = (int)(maxX - minX);
@@ -139,7 +140,7 @@ public:
         this->setMax(originX + width,originY + height);
     }
 
-    void set(QPoint (*downLeft), float width, float height)
+    void set(qPoint (*downLeft), float width, float height)
     {
         this->setHeight(height);
         this->setWidth(width);
@@ -148,7 +149,7 @@ public:
     }
 
 
-    bool containsPoint(QPoint *point) {
+    bool containsPoint(qPoint *point) {
 
         if ( (*point).getX() >= maxX ) return false;
         if ( (*point).getX() < minX ) return false;
@@ -157,11 +158,11 @@ public:
         return true;
     }
 
-    bool insideThis(QBoundingBox boundingBox) {
+    bool insideThis(qBoundingBox boundingBox) {
         return ((boundingBox.minX >= minX && boundingBox.maxX <= maxX) && ( boundingBox.minY >= minY && boundingBox.maxY <= maxY));
     }
 
-    bool intersectsBox(QBoundingBox boundingBox) {
+    bool intersectsBox(qBoundingBox boundingBox) {
 
         if (insideThis(boundingBox) || boundingBox.insideThis(*this)) return true;
 
@@ -171,14 +172,14 @@ public:
         return true;
     }
 
-    static bool equals(QBoundingBox qbb1,QBoundingBox qbb2)
+    static bool equals(qBoundingBox qbb1,qBoundingBox qbb2)
     {
       if( ((qbb1.minX == qbb2.minX) && (qbb1.minY && qbb2.minY)) && ((qbb1.maxX == qbb2.maxX) && (qbb1.maxY && qbb2.maxY)) ) return true;
 
         return false;
     }
 
-    bool isIn(vector<QBoundingBox> rectangles)
+    bool isIn(vector<qBoundingBox> rectangles)
     {
         for(int i=0; i<rectangles.size();i++) {
             if (equals((*this),rectangles[i]))
@@ -187,7 +188,7 @@ public:
         return false;
     }
 
-    static QBoundingBox* getQBoundingBoxCooridinates(vector<QPoint*> qPoints)
+    static qBoundingBox* getQBoundingBoxCooridinates(vector<qPoint*> qPoints)
     {
         if (qPoints.empty()) return NULL;
         float minX,maxX,minY,maxY,currentX,currentY,finalX,finalY; int i;
@@ -226,11 +227,11 @@ public:
         int originX = 0 - (int)finalX;
         int originY = 0 - (int)finalY;
 
-        return new QBoundingBox(originX,originY,finalWidth,finalHeight);
+        return new qBoundingBox(originX,originY,finalWidth,finalHeight);
 
     }
 
-    static QBoundingBox* getQBoundingBoxCooridinates(vector<QBoundingBox*> qBBoxes)
+    static qBoundingBox* getQBoundingBoxCooridinates(vector<qBoundingBox*> qBBoxes)
     {
         if (qBBoxes.empty()) return NULL;
         float minX,maxX,minY,maxY,currentX,currentY,finalX,finalY; int i;
@@ -276,14 +277,14 @@ public:
         int originX = 0 - (int)finalX;
         int originY = 0 - (int)finalY;
 
-        return new QBoundingBox(originX,originY,finalWidth,finalHeight);
+        return new qBoundingBox(originX,originY,finalWidth,finalHeight);
 
     }
 
-    static QBoundingBox* createRectangle(float minX,float minY,float maxX,float maxY)
+    static qBoundingBox* createRectangle(float minX,float minY,float maxX,float maxY)
     {
 
-        QBoundingBox* qbb = new QBoundingBox(qbbID);
+        qBoundingBox* qbb = new qBoundingBox(qbbID);
 
         int curHeight = (int)(maxY - minY);
         int curWidth = (int)(maxX - minX);
@@ -297,10 +298,10 @@ public:
 
     }
 
-    static QBoundingBox* createRectangle(float minX,float minY,float maxX,float maxY,int id)
+    static qBoundingBox* createRectangle(float minX,float minY,float maxX,float maxY,int id)
     {
 
-        QBoundingBox* qbb = new QBoundingBox(id);
+        qBoundingBox* qbb = new qBoundingBox(id);
 
         int curHeight = (int)(maxY - minY);
         int curWidth = (int)(maxX - minX);
@@ -318,11 +319,11 @@ public:
     void print(string prefix = "", bool emptyLine = false)
     {
         if(emptyLine)cout<<endl;
-//        cout<<prefix<< "QBoundingBox : QPoint | X : "<<this->getX()<<" | Y : "<<this->getY()<<" | ID : "<<this->getId()<<endl;
+//        cout<<prefix<< "qBoundingBox : qPoint | X : "<<this->getX()<<" | Y : "<<this->getY()<<" | ID : "<<this->getId()<<endl;
 
-        cout<<prefix<< "QBoundingBox | minX : "<<this->minX<<" | minY : "<<this->minY<<endl;
-        cout<<prefix<< "QBoundingBox | maxX : "<<this->maxX<<" | maxY : "<<this->maxY<<endl;
-        cout<<prefix<< "QBoundingBox | ID :"<<this->getId()<<" | Height : "<<this->getHeight()<<" | Width : "<<this->getWidth()<<endl;
+        cout<<prefix<< "qBoundingBox | minX : "<<this->minX<<" | minY : "<<this->minY<<endl;
+        cout<<prefix<< "qBoundingBox | maxX : "<<this->maxX<<" | maxY : "<<this->maxY<<endl;
+        cout<<prefix<< "qBoundingBox | ID :"<<this->getId()<<" | Height : "<<this->getHeight()<<" | Width : "<<this->getWidth()<<endl;
     }
 
 };

@@ -5,23 +5,25 @@
 #ifndef ADVDBTEST_QPOINT_H
 #define ADVDBTEST_QPOINT_H
 
-#include "QuadTreeLib.h"
+
+#include "quadTreeLib.h"
 
 using namespace std;
 
+
 int qpID = -333;
 
-class QPoint {
+class qPoint {
     float x;
     float y;
     int id;
 public:
-    QPoint() {}
-    QPoint(float x, float y)
+    qPoint() {}
+    qPoint(float x, float y)
     {   this->set(x,y);
         this->setId(qpID);
     }
-    QPoint(float x, float y, int id)
+    qPoint(float x, float y, int id)
     {   this->set(x,y);
         this->setId(id);
     }
@@ -65,7 +67,7 @@ public:
         return id;
     }
 
-    bool isIn(vector<QPoint> points)
+    bool isIn(vector<qPoint> points)
     {
         for(int i=0; i<points.size();i++) {
             if (points[i].x == this->x && points[i].y == this->y)

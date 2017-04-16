@@ -1,10 +1,10 @@
-#include "geometry.h"
+#include "data-storage.h"
 
 class SpatialIndexInterface
 {
 	public:
-	PointCollection searchPoint(Rectangle);
-	RectangleCollection searchRectangle(Rectangle);
+	PointCollection search(Rectangle,PointCollection*);
+	RectangleCollection search(Rectangle,RectangleCollection*);
 	void createIndex(PointCollection);
 	void createIndex(RectangleCollection);
 	bool update(PointCollection);

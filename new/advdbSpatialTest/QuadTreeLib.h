@@ -10,8 +10,7 @@
 #include <string>
 #include <algorithm>
 #include <cmath>
-#include <sstream>
-#include <fstream>
-#include <cstring>
+#include <math.h>
+#include <limits>
 
 #endif //ADVDBTEST_QUADTREELIB_H
