@@ -14,6 +14,7 @@
 
 using namespace std;
 
+
 prQuadTree* bulkLoadPrQuadTree(std::string inputFilePath ){
 
     vector<qPoint*> pointsToLoad;
@@ -51,7 +52,7 @@ prQuadTree* bulkLoadPrQuadTree(std::string inputFilePath ){
         i++;
     }
 
-    prQuadTree* prQt = new prQuadTree(qBb);
+    prQuadTree* prQt = new prQuadTree(qBb, leafCapacity);
 
     for(int i=0;i<pointsToLoad.size();i++) {
         prQt->insert(pointsToLoad[i]);
@@ -67,8 +68,9 @@ prQuadTree* testBulkLoadPrQuadTree() {
 
     cout << "\n\n\n Bulkloading Of Points - Started" << endl;
     std:: string fileToLoadPath;
-    fileToLoadPath = "/Users/ravichandran/Documents/Misc/Docs/ASU_Subjects/Spring_17/ADVDB/Project/Code/advances-quadtree/new/advdbSpatialTest/Test/point.csv";
+//    fileToLoadPath = "/Users/ravichandran/Documents/Misc/Docs/ASU_Subjects/Spring_17/ADVDB/Project/Code/advances-quadtree/new/advdbSpatialTest/Test/point.csv";
 //    fileToLoadPath = "/Users/princechawla/advances-quadtree/new/advdbSpatialTest/Test/point.csv";
+    fileToLoadPath = "../Test/point.csv";
 
     prQuadTree* temp = bulkLoadPrQuadTree(fileToLoadPath);
     cout << "\n\n\n Bulkloading Of Points - Ended" << endl;

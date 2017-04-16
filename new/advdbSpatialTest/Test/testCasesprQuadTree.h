@@ -9,6 +9,8 @@
 #include "../prQuadNode.h"
 #include "../prQuadTree.h"
 
+int leafCapacity = 64;
+
 void testprQuadNode()
 {
     cout<<"\n\n prQuadNode Testing - Started"<<endl;
@@ -19,7 +21,7 @@ void testprQuadNode()
 
     cout<<"\n\n prQuadNode Test Case 2"<<endl;
     qBoundingBox *tqbb1 = new qBoundingBox(0,0,100,100);
-    prQuadNode *prQuadNode2= new prQuadNode(*tqbb1);
+    prQuadNode *prQuadNode2= new prQuadNode(*tqbb1,leafCapacity);
     prQuadNode2->print();
 
     cout<<"\n\n prQuadNode Testing - Ended"<<endl;
@@ -49,7 +51,7 @@ vector<qPoint*> pointsTestCase1(){
 void prQuadTreeTestCase1()
 {
     cout<<"\n\nprQuadTree Test Case 1"<<endl;
-    prQuadTree *prQT = new prQuadTree(0,0,200,200);
+    prQuadTree *prQT = new prQuadTree(0,0,200,200,leafCapacity);
     vector<qPoint*> testQPoints=pointsTestCase1();
     for(int i=0;i<testQPoints.size();i++) {
         prQT->insert(testQPoints[i]);
@@ -67,7 +69,7 @@ void prQuadTreeTestCase1()
 void prQuadTreeTestCase1Delete()
 {
     cout<<"\n\nDelete prQuadTree Test Case 1"<<endl;
-    prQuadTree *prQT = new prQuadTree(0,0,200,200);
+    prQuadTree *prQT = new prQuadTree(0,0,200,200,leafCapacity);
     vector<qPoint*> testQPoints=pointsTestCase1();
     for(int i=0;i<testQPoints.size();i++) {
         prQT->insert(testQPoints[i]);
@@ -94,7 +96,7 @@ vector<qPoint*> pointsTestCase2(){
 void prQuadTreeTestCase2()
 {
     cout<<"\n\nprQuadTree Test Case 2"<<endl;
-    prQuadTree *prQT = new prQuadTree(25,25,50,50);
+    prQuadTree *prQT = new prQuadTree(25,25,50,50,leafCapacity);
     vector<qPoint*> testQPoints=pointsTestCase2();
     for(int i=0;i<testQPoints.size();i++) {
         prQT->insert(testQPoints[i]);
@@ -161,7 +163,7 @@ vector<qPoint*> pointsTestCase3(){
 void prQuadTreeTestCase3()
 {
     cout<<"\n\nprQuadTree Test Case 3"<<endl;
-    prQuadTree *prQT = new prQuadTree(0,0,400,400);
+    prQuadTree *prQT = new prQuadTree(0,0,400,400,leafCapacity);
     vector<qPoint*> testQPoints=pointsTestCase3();
     for(int i=0;i<testQPoints.size();i++) {
         prQT->insert(testQPoints[i]);
@@ -191,7 +193,7 @@ vector<qPoint*> pointsTestCase4(){
 void prQuadTreeTestCase4()
 {
     cout<<"\n\nprQuadTree 4"<<endl;
-    prQuadTree *prQT = new prQuadTree(50,50,100,100);
+    prQuadTree *prQT = new prQuadTree(50,50,100,100,leafCapacity);
     vector<qPoint*> testQPoints = pointsTestCase4();
     for(int i=0;i<testQPoints.size();i++) {
         prQT->insert(testQPoints[i]);
